@@ -51,7 +51,12 @@
     <!-- end header -->
 
     <main>
-      
+      <?php foreach($noticias as $noticia){ ?>
+        <div>
+          <h2><?php echo $noticia['titulo']?></h2>
+          <p><?php echo $noticia['texto']?></p>
+        </div>
+      <?php } ?> 
     </main>
 
     <footer class="footer">

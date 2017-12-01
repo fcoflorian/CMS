@@ -6,9 +6,20 @@ class Index_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function cargarUltimas5Noticias()
-	{
-		$query = $this->db->get('noticias');
+	public function cargarUltimas5Noticias(){
+		$query = $this->db->limit(5)
+				->get('noticias');
+		return $query->result_array();
+	}
+
+	public function cargarEventos(){
+		$query = $this->db->get('eventos');
+		return $query->result_array();
+	}
+
+	public function cargarUltimos5Anuncios(){
+		$query = $this->db->limit(5)
+				->get('anuncios');
 		return $query->result_array();
 	}
 }
