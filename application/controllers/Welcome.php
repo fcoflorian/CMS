@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
 	{
 		// $this->load->view('vista/index_view');
 		// $this->load->view('vista/miembros_view');
-		$this->load->view('vista/login_view');
+		// $this->load->view('vista/login_view');
 		// $this->load->view('vista/register_view');
 		// $this->load->view('vista/miembros_view');
 		// $this->load->view('vista/miembros_view');
