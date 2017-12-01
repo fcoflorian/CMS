@@ -152,10 +152,6 @@
           </div>
         </div>
       </div>
-
-
-    
-      
     </main>
 
     <footer class="footer">
