@@ -25,7 +25,11 @@ class Noticias_model extends CI_Model {
 
 	public function guardarComentario($comentario){
 		if($comentario['comentario'] != null){
-			return $this->db->insert('comentarios', $comentario);
+			if($this->db->insert('comentarios', $comentario)){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 }

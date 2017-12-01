@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link active" href="#">Inicio</a>
-            <a class="nav-item nav-link" href="noticia_view.php">Noticias</a>
+            <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
             <div class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Miembros

@@ -20,7 +20,7 @@ class Noticias_controller extends CI_Controller {
 		$this->load->view('vista/noticia_view', $data);
 	}
 
-	public function ver($id = null){
+	public function verNoticia($id = null){
 		if($id != null){
 			$data['noticia'] = $this->Noticias_model->cargarUnaNoticia($id);
 
@@ -30,9 +30,9 @@ class Noticias_controller extends CI_Controller {
 
 	public function guardarComentario(){
 		if($_POST){
-			$this->Noticias_model->guardarComentario($_POST);
-
-			redirect('Noticias_controller/index');
+			if($this->Noticias_model->guardarComentario($_POST)){
+				redirect('Noticias_controller/index');
+			}
 		}
 	}
 }
