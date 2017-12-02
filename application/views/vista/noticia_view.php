@@ -51,7 +51,7 @@
                 <a href="#" class="btn btn-outline-warning btn-sm">Leer más...</a>
               </div>
 
-              <?php $this->load->view('vista/admin/comentario') ?>
+              <?php $this->load->view('vista/comentario') ?>
             </div>
             <!-- Fin Artículos -->
             <!-- Artículos -->
