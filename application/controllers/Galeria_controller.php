@@ -10,30 +10,27 @@ class Galeria_controller extends CI_Controller {
 	}
 
 	public function index($id = null){
-		if($_POST){
-			$guardar = $this->guardarFoto($id);
-			if(count($guardar) > 0){
-				$data['foto'] = $guardar[0];
-				$data['error'] = $guardar[1];
-			}
-		}else{
-			$data['foto'] = $this->Galeria_model->cargarUnaFoto($id);
-		}
-
 		$data['fotos'] = $this->Galeria_model->cargarFotos();
 		
 		$this->load->view('vista/galeria_view', $data);
 	}
 
 	public function guardarFoto($id = null){
-		if($id == null){
-			$guardar = $this->Galeria_model->guardarFoto($_POST);
-			if(count($guardar) > 0){
-				return $guardar;
+		if($_POST){
+			if($id == null){
+				$guardar = $this->Galeria_model->guardarFoto($_POST);
+				if(count($guardar) > 0){
+					$data['foto'] = $guardar[0];
+					$data['error'] = $guardar[1];
+				}
+			}else{
+				$this->editarFoto($id);
 			}
 		}else{
-			$this->editarFoto($id);
+			$data['foto'] = $this->Galeria_model->cargarUnaFoto($id);
 		}
+
+		$this->load->view('vista/admin/galeria', $data);
 	}
 
 	public function editarFoto($id = null){
