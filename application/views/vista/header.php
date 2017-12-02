@@ -14,9 +14,9 @@
               Miembros
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/iniciarSesion') ?>"> Iniciar sesión</a>
-              <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/registrarMiembro') ?>">Registrarse</a>
-              <!-- <div class="dropdown-divider"></div> -->
+              <a class="dropdown-item" href="" data-toggle="modal" data-target="#login">Iniciar sesión</a>
+              <a class="dropdown-item" href="" data-toggle="modal" data-target="#register">Registrarse</a>
+               <div class="dropdown-divider"></div> 
             </div>
           </div>
           <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
@@ -27,10 +27,136 @@
           <a class="nav-item nav-link" href="#">Admin</a>
         </div>
         <div>
-          <a href="<?php echo site_url('Miembros_controller/iniciarSesion') ?>" class="btn btn-outline-primary">Login</a>
-          <a href="#"  class="btn btn-outline-primary">Register</a>
+          <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#login">Login</a>
+          <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
         </div>
       </div>
     </nav>
   </div>
+
+  <!--Modal login-->
+
+  <div class="modal fade bd-example-modal-lg" id="login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?php echo site_url('Miembros_controller/iniciarSesion') ?>" method="post">
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <div class="form-group input-group">
+                                <label for="cedula" class="input-group-addon">Cedula</label>
+                                <input type="text" name="cedula" class="form-control" placeholder="Cedula">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center"><hr>
+                      <input type="submit" class="btn btn-primary" value="Iniciar sesión">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!--Modal login-->
+  <!--Modal register-->
+
+  <div class="modal fade bd-example-modal-lg" id="register" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="<?php echo site_url('Miembros_controller/registrarMiembro') ?>" method="post">
+              <div class="row">
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Cedula</label>
+                    <input type="number" name="cedula" class="form-control" placeholder="Cedula">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                  </div>
+                </div>
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Apellido</label>
+                    <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Telefono</label>
+                    <input type="number" name="telefono" class="form-control" placeholder="Telefono">
+                  </div>
+                </div>
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Celular</label>
+                    <input type="number" name="celular" class="form-control" placeholder="Celular">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Direccion</label>
+                    <input type="text" name="direccion" class="form-control" placeholder="Direccion">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Latitud</label>
+                    <input type="text" name="latitud" class="form-control" placeholder="Latitud">
+                  </div>
+                </div>
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Longitud</label>
+                    <input type="text" name="longitud" class="form-control" placeholder="Longitud">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="" class="input-group-addon">Email</label>
+                    <input type="email" name="correo" class="form-control" placeholder="Email">
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <input class="btn btn-primary" type="submit" value="Registrarse">
+              </div>
+
+            </form><hr>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modal register-->
 </header>

@@ -34,7 +34,7 @@ class Miembros_controller extends CI_Controller {
 			}
 		}
 
-		$this->load->view('vista/register_view', isset($data)?$data:'');
+		$this->load->view('vista/header', isset($data)?$data:'');
 	}
 
 	public function iniciarSesion(){
@@ -47,6 +47,6 @@ class Miembros_controller extends CI_Controller {
 			}
 		}
 
-		$this->load->view('vista/login_view', isset($data)?$data:'');
+		$this->load->view('vista/header', isset($data)?$data:'');
 	}
 }
