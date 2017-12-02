@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="es">
   <head>
@@ -14,42 +15,7 @@
 
   <body>
     <!-- header -->
-    <header>
-      <div class="container-fluid bg-light text-center">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
-          <a class="navbar-brand mr-5" href="#">CMS</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
-              <a class="nav-item nav-link" href="#">Noticias</a>
-              <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Miembros
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#"> Inicia Sesión</a>
-                  <a class="dropdown-item" href="#">Registrarte</a>
-                  <!-- <div class="dropdown-divider"></div> -->
-                </div>
-              </div>
-              <a class="nav-item nav-link" href="#">Galería de fotos</a>
-              <a class="nav-item nav-link" href="#">Eventos</a>
-              <a class="nav-item nav-link" href="#">Clasificados</a>
-              <a class="nav-item nav-link" href="#">Contacto</a>
-              <a class="nav-item nav-link" href="#">FAQ</a>
-              <a class="nav-item nav-link" href="#">Admin</a>
-            </div>
-            <div>
-              <a href="#" class="btn btn-outline-primary">Login</a>
-              <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+      <?php $this->load->view('vista/header') ?>
     <!-- end header -->
 
     <main>
@@ -165,4 +131,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="CSS/js/bootstrap.min.js"></script>
   </body>
+>>>>>>> 1bb342d0da8c500537b539283df39a6711233fdd
 </html>
