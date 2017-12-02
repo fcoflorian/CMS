@@ -51,4 +51,3 @@ class Miembros_controller extends CI_Controller {
 		$this->load->view('vista/login_view', $data);
 	}
 }
-?>
