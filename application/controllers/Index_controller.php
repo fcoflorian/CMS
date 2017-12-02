@@ -15,12 +15,6 @@ class Index_controller extends CI_Controller {
 		$data['anuncios'] = $this->Index_model->cargarUltimos5Anuncios();
 		
 		$this->load->view('vista/index_view', $data);
+		
 	}
-
-	//$this->load->view('vista/miembros_view');
-	//$this->load->view('vista/login_view');
-	//$this->load->view('vista/register_view');
-	//$this->load->view('vista/clasificados_view');
-	//$this->load->view('vista/noticia_view');
-	//$this->load->view('vista/eventos_view');
 }
