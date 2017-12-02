@@ -30,6 +30,8 @@ class Noticias_model extends CI_Model {
 			}else{
 				return false;
 			}
+		}else{
+			return array($comentario, 'Debe comentar algo');
 		}
 	}
 }

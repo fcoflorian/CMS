@@ -19,14 +19,19 @@ class Miembros_model extends CI_Model {
 	}
 
 	public function guardarMiembro($miembro){
-		if($miembro['cedula'] != null && $miembro['nombre'] != null && $miembro['apellido'] != null && $miembro['telefono'] != null && $miembro['correo'] != null && $miembro['celular'] != null && $miembro['direccion'] != null && $miembro['latitud'] != null && $miembro['longitud'] != null){
-			if($this->db->insert('miembros', $miembro)){
-				return true;
-			}else{
-				return false;
+		$query = $this->db->get_where('miembros', array('cedula' => $miembro['cedula']));
+		if($query->row_array()){
+			return array(false, 'Cedula ya registrada', $miembro);
+		}else{
+			if($miembro['cedula'] != null && $miembro['nombre'] != null && $miembro['apellido'] != null && $miembro['telefono'] != null && $miembro['correo'] != null && $miembro['celular'] != null && $miembro['direccion'] != null && $miembro['latitud'] != null && $miembro['longitud'] != null){
+				if($this->db->insert('miembros', $miembro)){
+					return array(true);
+				}else{
+					return array(false, 'Error interno, intentelo de nuevo', $miembro);
+				}
+			} else{
+				return array(false, 'Todos los campos son obligatorios', $miembro);
 			}
-		} else{
-			return array($miembro, 'Todos los campos son obligatorios');
 		}
 	}
 
@@ -34,6 +39,7 @@ class Miembros_model extends CI_Model {
 		$query = $this->db->get_where('miembros', array('cedula' => $cedula['cedula']));
 		if($query->row_array()){
 			$session = array(
+				'id' => $query->row_array()['id'],
 				'cedula' => $query->row_array()['cedula'],
 				'nombre' => $query->row_array()['nombre'],
 				'apellido' => $query->row_array()['apellido'],

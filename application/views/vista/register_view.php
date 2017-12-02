@@ -23,7 +23,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="#">Inicio</a>
+              <a class="nav-item nav-link" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
               <a class="nav-item nav-link" href="#">Noticias</a>
               <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,7 +64,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="" method="post">
+                <form action="<?php echo site_url('Miembros_controller/registrarMiembro') ?>" method="POST">
                   <div class="row">
                     <div class="col col-sx-6">
                       <div class="input-group form-group">
@@ -83,7 +83,7 @@
                     <div class="col col-sx-6">
                       <div class="input-group form-group">
                         <label for="" class="input-group-addon">Apellido</label>
-                        <input type="text" name="apelldio" class="form-control" placeholder="Apellido">
+                        <input type="text" name="apellido" class="form-control" placeholder="Apellido">
                       </div>
                     </div>
                   </div>
@@ -120,7 +120,7 @@
                     <div class="col col-sx-6">
                       <div class="input-group form-group">
                         <label for="" class="input-group-addon">Longitud</label>
-                        <input type="text" name="logintud" class="form-control" placeholder="Longitud">
+                        <input type="text" name="longitud" class="form-control" placeholder="Longitud">
                       </div>
                     </div>
                   </div>
@@ -129,23 +129,19 @@
                     <div class="col col-sx-6">
                       <div class="input-group form-group">
                         <label for="" class="input-group-addon">Email</label>
-                        <input type="email" name="email " class="form-control" placeholder="Email">
-                      </div>
-                    </div>
-                    <div class="col col-sx-6">
-                      <div class="input-group form-group">
-                        <label for="" class="input-group-addon">Contraseña</label>
-                        <input type="password" name="pass" class="form-control" placeholder="Contraseña">
+                        <input type="email" name="correo" class="form-control" placeholder="Email">
                       </div>
                     </div>
                   </div>
 
+                  <input type="submit" value="Registrarse">
+
                 </form><hr>
               </div>
               <div class="text-center">
-                <a href="" class="btn btn-primary" type="submit">Registrection</a>
+                <a href="" class="btn btn-primary" type="submit">Register</a>
                 <div>
-                  <a href="" class="badge badge-info">login</a>
+                  <a href="" class="badge badge-info">Login</a>
                 </div>
                 
               </div>

@@ -29,12 +29,12 @@
                 Miembros
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#"> Inicia Sesión</a>
-                <a class="dropdown-item" href="#">Registrarte</a>
+                <a class="dropdown-item" href="#"> Iniciar sesión</a>
+                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/registrarMiembro') ?>">Registrarse</a>
                 <!-- <div class="dropdown-divider"></div> -->
               </div>
             </div>
-            <a class="nav-item nav-link" href="#">Galería de fotos</a>
+            <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
             <a class="nav-item nav-link" href="#">Eventos</a>
             <a class="nav-item nav-link" href="#">Clasificados</a>
             <a class="nav-item nav-link" href="#">Contacto</a>

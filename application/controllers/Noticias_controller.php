@@ -10,6 +10,13 @@ class Noticias_controller extends CI_Controller {
 	}
 
 	public function index($paginaActual = 1){
+		if($_POST['comentario']){
+			$comentario = $this->Noticias_model->guardarComentario($_POST);
+			if(count($comentario) > 0){
+				$data['error'] = $comentario[1];
+			}
+		}
+
 		$data['noticias'] = $this->Noticias_model->cargarNoticias();
 
 		$data['numeroDePaginas'] = ceil(count($data['noticias'])/10);
@@ -25,14 +32,6 @@ class Noticias_controller extends CI_Controller {
 			$data['noticia'] = $this->Noticias_model->cargarUnaNoticia($id);
 
 			$this->load->view('vista/ver_noticia_view', $data);
-		}
-	}
-
-	public function guardarComentario(){
-		if($_POST){
-			if($this->Noticias_model->guardarComentario($_POST)){
-				redirect('Noticias_controller/index');
-			}
 		}
 	}
 }
