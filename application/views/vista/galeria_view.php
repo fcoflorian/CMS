@@ -21,7 +21,7 @@
     <!-- card -->
     <main>
       <div class="container col-auto">
-          <h1 class="text-center mt-2">Galeria  de Fotos</h1><hr>
+          <h1 class="text-center">Galeria  de Fotos</h1><hr>
           <div class="row">
           <div class="container mt-5">
             <div class="col col-sm-4">
@@ -59,13 +59,8 @@
             </div>
             </div>
           </div>
-        </div><!-- fin card -->
-      </div>
-
-
-      
-      
-
+        </div>
+      </div><!-- fin card -->
       <?php foreach($fotos as $foto){ ?>
         <p><?php echo $foto['nombre'] ?></p>
         <a href="<?php echo site_url('Galeria_controller/index/'.$foto['id']); ?>" class="btn btn-warning">Editar</a>
