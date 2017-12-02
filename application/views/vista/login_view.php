@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="CSS/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
   </head>
 
@@ -35,28 +34,29 @@
                         <div class="row">
                             <div class="col col-md-12">
                                 <div class="form-group input-group">
-                                    <label for="email" class="input-group-addon">Username</label>
-                                    <input type="email" name="email" class="form-control" placeholder="username">
+                                    <label for="cedula" class="input-group-addon">Cedula</label>
+                                    <input type="text" name="cedula" class="form-control" placeholder="Cedula">
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col col-md-12">
                                 <div class="form-group input-group">
                                     <label for="email" class="input-group-addon">Password</label>
                                     <input type="password" name="pass" class="form-control" placeholder="password">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="text-center"><hr>
+                    <input type="submit" class="btn btn-primary" value="Entrar">
+                    <!-- <button type="hidden" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="hidden" class="btn btn-primary">Save changes</button> -->
                     
                 </div>
                 <div class="text-center">
-                    <a href="#">Register</a>
+                    <a href="<?php site_url('Miembros_controller/registrarMiembro');?>">Register</a>
                 </div>
             </div>
         </div>
