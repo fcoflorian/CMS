@@ -147,7 +147,6 @@
                 <div>
                   <a href="" class="badge badge-info">login</a>
                 </div>
-                
               </div>
           </div>
         </div>
