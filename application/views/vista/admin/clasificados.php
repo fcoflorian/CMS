@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Crear anuncios</title>
+    <title>Crear clasificado</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    
-
   </head>
 
   <body>
@@ -20,7 +17,7 @@
 
     <main>
         <div class="container">
-            <H1 class="text-center">Crear su anuncios!</H1><hr>
+            <h2 class="text-center">Crear clasificado</h2><hr>
             <div class="d-flex justify-content-center">
                 <form action="" method="post">
                     <input type="hidden" name="id" class="form-control" value="">
@@ -48,17 +45,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col col-sm-12">
-                            <div class="input-group form-group">
-                                <label for="fecha" class="input-group-addon">Fecha</label>
-                                <input type="date" name="fecha" class="form-control" value="">
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="text-center">
                         <div class="input-group form-group">
-                            <button type="submit" class="btn btn-success">Crear</button>    
+                            <input type="submit" class="btn btn-success" value="Publicar">
                         </div>
                     </div>
                 </form>
@@ -68,7 +58,6 @@
 
     <!-- Footer -->
     <footer class="footer">
-
 
     </footer>
     <!-- Fin Footer -->
