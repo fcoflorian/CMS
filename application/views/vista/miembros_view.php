@@ -18,27 +18,49 @@
     <main>
       <h2 class="text-center mt-5 mb-5">Lista de miembros</h2>
       <div class="container">
-        <table class="table table-hover table-responsive table-bordered">
-          <thead>
-            <tr>
-              <th>Foto</th>
-              <th>Nombre</th>
-              <th>Telefono</th>
-              <th>Correo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach($miembros as $miembro){ ?>
+          <table class="table table-hover">
+            <thead>
               <tr>
-                <td><?php echo 'Foto' ?></td>
-                <td><?php echo $miembro['nombre'] ?></td>
-                <td><?php echo $miembro['telefono'] ?></td>
-                <td><?php echo $miembro['correo'] ?></td>
+                
+                <th scope="col">Foto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Correo</th>
               </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              <tr>
+                <?php foreach($miembros as $miembro){ ?>
+                  <tr>
+                    <td><?php echo 'Foto' ?></td>
+                    <td><?php echo $miembro['nombre'] ?></td>
+                    <td><?php echo $miembro['telefono'] ?></td>
+                    <td><?php echo $miembro['correo'] ?></td>
+                  </tr>
+                  <tr>
+                    <td><?php echo 'Foto' ?></td>
+                    <td><?php echo $miembro['nombre'] ?></td>
+                    <td><?php echo $miembro['telefono'] ?></td>
+                    <td><?php echo $miembro['correo'] ?></td>
+                  </tr>
+                  <tr>
+                    <td><?php echo 'Foto' ?></td>
+                    <td><?php echo $miembro['nombre'] ?></td>
+                    <td><?php echo $miembro['telefono'] ?></td>
+                    <td><?php echo $miembro['correo'] ?></td>
+                  </tr>
+                  <tr>
+                    <td><?php echo 'Foto' ?></td>
+                    <td><?php echo $miembro['nombre'] ?></td>
+                    <td><?php echo $miembro['telefono'] ?></td>
+                    <td><?php echo $miembro['correo'] ?></td>
+                  </tr>
+                  
+                <?php } ?>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </main>
 
     <footer class="footer">
