@@ -30,7 +30,7 @@ class Galeria_controller extends CI_Controller {
 			$data['foto'] = $this->Galeria_model->cargarUnaFoto($id);
 		}
 
-		$this->load->view('vista/admin/galeria', $data);
+		$this->load->view('vista/admin/galeria', isset($data)?$data:'');
 	}
 
 	public function editarFoto($id = null){

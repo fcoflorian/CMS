@@ -31,7 +31,9 @@
               <?php }else{ ?>
                 <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
               <?php } ?>
-              <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/index') ?>">Ver miembros</a>
+              <?php if($this->session->userdata('cedula') != null){ ?>
+                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/index') ?>">Ver miembros</a>
+              <?php } ?>
             </div>
           </div>
           <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>

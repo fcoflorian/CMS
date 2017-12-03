@@ -14,7 +14,7 @@
 
     <main>
         <div class="container">
-            <h1 class="text-center">Eventos Publicados</h1><hr>
+            <h2 class="text-center">Evento: <?php echo $evento['titulo'] ?></h2><hr>
         </div>
     </main>
 

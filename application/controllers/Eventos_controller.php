@@ -61,7 +61,7 @@ class Eventos_controller extends CI_Controller {
 		if($id != null){
 			$data['evento'] = $this->Eventos_model->cargarUnEvento($id);
 
-			$this->load->view('vista/ver_evento_view');
+			$this->load->view('vista/ver_evento_view', $data);
 		}
 	}
 }

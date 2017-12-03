@@ -14,15 +14,14 @@
      
     <!-- Main -->
     <div class="container">
-      <h2>Noticias</h2>
-      <p class="lead">Escrito por Alejandro Villa</p>
-      <hr>
+      <h2 class="mt-5 mb-5">Noticias</h2>
         <div class="row">
           <!-- Sección de noticias -->
           <div class="col-12 col-lg-9 mb-5">
             <!-- Artículos -->
             <?php for($i = ($paginaActual-1) * 10; $i < $paginaActual * 10; $i++){ ?>
               <?php if($i < count($noticias)){ ?>
+                <hr>
                 <div class="row mb-5">
                   <div class="col-3">
                     <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticias[$i]['imagen'])?$noticias[$i]['imagen']:'';?>" alt="">
@@ -32,6 +31,9 @@
                     <a href="#"><h3><?php echo $noticias[$i]['titulo'] ?></h3></a>
                     <p><?php echo $noticias[$i]['descripcion'] ?></p>
                   </div>
+
+                  <a href="<?php echo site_url('Noticias_controller/guardarNoticia/'.$noticias[$i]['id']); ?>" class="btn btn-warning">Editar</a>
+                  <a href="<?php echo site_url('Noticias_controller/borrarNoticia/'.$noticias[$i]['id']); ?>" class="btn btn-danger">Eliminar</a>
                   
                   <!--Comentarios-->
 
