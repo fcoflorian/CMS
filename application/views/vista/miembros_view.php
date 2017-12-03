@@ -17,7 +17,28 @@
     <!-- end header -->
 
     <main>
-      
+
+    <h2 class="text-center">Lista de Miembros</h2>
+      <div class="container">
+        <table class="table table-hover">
+          <tr>
+            <td>Foto</td>
+            <td>Nombre</td>
+            <td>Telefono</td>
+            <td>Corre</td>
+          </tr>
+          <?php
+            foreach($rs as $fila){
+              echo "<tr>
+                <td>{$fila['foto']}</td>
+                <td>{$fila['nombre']}</td>
+                <td>{$fila['telefono']}</td>
+                <td>{$fila['correo']}</td>
+              </tr>";
+            }
+          ?>
+        </table>
+      </div>
     </main>
 
     <footer class="footer">
