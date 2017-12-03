@@ -40,7 +40,7 @@
 
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 8,
-              center: {lat: 18.459013, lng: -69.913839}
+              center: {lat: 18.918857, lng: -70.209149}
             });
 
             for(var i = 0; i < uluru.length; i++){

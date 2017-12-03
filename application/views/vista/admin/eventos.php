@@ -41,7 +41,7 @@
               <div class="col col-sx-12">
                 <div class="input-group form-group">
                   <label for="descripcion" class="input-group-addon">Descripcion</label>
-                  <textarea name="descripcion" class="form-control"><?php echo isset($evento['descripcion'])?$evento['descripcion']:'' ?>"</textarea>
+                  <textarea name="descripcion" class="form-control"><?php echo isset($evento['descripcion'])?$evento['descripcion']:'' ?></textarea>
                 </div>
               </div>
             </div>

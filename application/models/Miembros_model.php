@@ -25,7 +25,28 @@ class Miembros_model extends CI_Model {
 		}else{
 			if($miembro['cedula'] != null && $miembro['nombre'] != null && $miembro['apellido'] != null && $miembro['telefono'] != null && $miembro['correo'] != null && $miembro['celular'] != null && $miembro['direccion'] != null && $miembro['latitud'] != null && $miembro['longitud'] != null){
 				if($this->db->insert('miembros', $miembro)){
-					return array(true);
+					$query = $this->db->get_where('miembros', array('cedula' => $miembro['cedula']));
+					if($query->row_array()){
+						$session = array(
+							'id' => $query->row_array()['id'],
+							'cedula' => $query->row_array()['cedula'],
+							'nombre' => $query->row_array()['nombre'],
+							'apellido' => $query->row_array()['apellido'],
+							'telefono' => $query->row_array()['telefono'],
+							'correo' => $query->row_array()['correo'],
+							'celular' => $query->row_array()['celular'],
+							'direccion' => $query->row_array()['direccion'],
+							'latitud' => $query->row_array()['latitud'],
+							'longitud' => $query->row_array()['longitud'],
+							'admin' => $query->row_array()['admin']
+						);
+
+						$this->session->set_userdata($session);
+
+						return array(true);
+					}else{
+						return array(false);
+					}
 				}else{
 					return array(false, 'Error interno, intentelo de nuevo', $miembro);
 				}
