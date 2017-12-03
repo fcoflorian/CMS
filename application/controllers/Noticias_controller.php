@@ -21,8 +21,6 @@ class Noticias_controller extends CI_Controller {
 
 		$data['numeroDePaginas'] = ceil(count($data['noticias'])/10);
 		$data['paginaActual'] = $paginaActual;
-
-		$data['comentarios'] = $this->Noticias_model->cargarComentarios();
 		
 		$this->load->view('vista/noticia_view', $data);
 	}

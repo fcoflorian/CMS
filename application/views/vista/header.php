@@ -10,13 +10,17 @@
           <a class="nav-item nav-link active" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
           <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="<?php echo site_url('Miembros_controller/index') ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Miembros
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="" data-toggle="modal" data-target="#login">Iniciar sesión</a>
-              <a class="dropdown-item" href="" data-toggle="modal" data-target="#register">Registrarse</a>
-               <div class="dropdown-divider"></div> 
+              <?php if($this->session->userdata('cedula') == null){ ?>
+                <a class="dropdown-item" href="" data-toggle="modal" data-target="#login">Iniciar sesión</a>
+                <a class="dropdown-item" href="" data-toggle="modal" data-target="#register">Registrarse</a>
+              <?php }else{ ?>
+                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
+              <?php } ?>
+              <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/index') ?>">Ver miembros</a>
             </div>
           </div>
           <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
@@ -24,11 +28,18 @@
           <a class="nav-item nav-link" href="#">Clasificados</a>
           <a class="nav-item nav-link" href="#">Contacto</a>
           <a class="nav-item nav-link" href="#">FAQ</a>
-          <a class="nav-item nav-link" href="#">Admin</a>
+          <?php if($this->session->userdata('admin') == 'admin'){ ?>
+            <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
+            <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/guardarFoto') ?>">Subir fotos</a>
+          <?php } ?>
         </div>
         <div>
-          <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#login">Login</a>
-          <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
+          <?php if($this->session->userdata('cedula') == null){ ?>
+            <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#login">Login</a>
+            <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
+          <?php }else{ ?>
+            <a class="btn btn-outline-danger" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
+          <?php } ?>
         </div>
       </div>
     </nav>

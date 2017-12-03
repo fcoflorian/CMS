@@ -48,7 +48,8 @@ class Miembros_model extends CI_Model {
 				'celular' => $query->row_array()['celular'],
 				'direccion' => $query->row_array()['direccion'],
 				'latitud' => $query->row_array()['latitud'],
-				'longitud' => $query->row_array()['longitud']
+				'longitud' => $query->row_array()['longitud'],
+				'admin' => $query->row_array()['admin']
 			);
 
 			$this->session->set_userdata($session);

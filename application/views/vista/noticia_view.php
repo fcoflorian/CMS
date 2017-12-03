@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Blog super genial</title>
+    <title>Noticias</title>
     <meta name="description" content="Curso de Bootstrap Gratis">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Ignacio Gutiérrez">
@@ -30,61 +30,56 @@
      
     <!-- Main -->
     <div class="container">
-      <h2>Noticia</h2>
+      <h2>Noticias</h2>
       <p class="lead">Escrito por Alejandro Villa</p>
       <hr>
         <div class="row">
           <!-- Sección de noticias -->
           <div class="col-12 col-lg-9 mb-5">
             <!-- Artículos -->
-            <div class="row mb-5">
-              <div class="col-3">
-                <img class="img-fluid" src="../klk.png" alt="">
-                <p class="lead text-muted text-center">2 Diciembre 2017</p>
-              </div>
-              <div class="col-9">
-                <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
-                <a href="#"><span class="badge badge-danger text-uppercase">html</span></a>
-                <a href="#"><span class="badge badge-primary text-uppercase">css</span></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum, similique debitis saepe soluta, vero provident ab atque fuga molestias magni repellat labore adipisci! Sapiente deleniti numquam minus adipisci reiciendis at, assumenda odit itaque tempore voluptas, repellat sequi ab quibusdam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi rem quasi reiciendis, ut eligendi, facilis deleniti temporibus vero ipsum accusamus.</p>
-                <a href="#" class="btn btn-outline-warning btn-sm">Leer más...</a>
-              </div>
+            <?php foreach($noticias as $noticia){ ?>
+              <div class="row mb-5">
+                <div class="col-3">
+                  <img class="img-fluid" src="../klk.png" alt="">
+                  <p class="lead text-muted text-center"><?php echo $noticia['fecha'] ?></p>
+                </div>
+                <div class="col-9">
+                  <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
+                  <p><?php echo $noticia['texto'] ?></p>
+                </div>
+                
+                <!--Comentarios-->
 
-              <?php $this->load->view('vista/comentario') ?>
-            </div>
-            <!-- Fin Artículos -->
-            <!-- Artículos -->
-            <div class="row mb-5">
-              <div class="col-3">
-                <img class="img-fluid" src="" alt="">
-                <p class="lead text-muted text-center">2 Diciembre 2017</p>
+                <div class="container">
+                  <hr>
+                  <?php foreach($noticia['comentarios'] as $comentario){ ?>
+                    <div>
+                      <p><?php echo $comentario['comentario'] ?></p>
+                    </div>
+                  <?php } ?>
+                  <div class="d-flex justify-content-center">
+                      <form action="" method="post">
+                          <input type="hidden" name="id_noticia" class="form-control" value="<?php echo $noticia['id'] ?>">
+                          <div class="row">
+                            <div class="col-auto">
+                              <div class="input-group form-group">
+                                <label for="comentario" class="input-group-addon">Comentario</label>
+                                
+                                <textarea rows="2" cols="80" name="comentario"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                              <div class="input-group form-group">
+                                  <input type="submit" class="btn btn-success" value="Comentar">    
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                </div>
+                <!--Comentarios-->
               </div>
-              <div class="col-9">
-                <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
-                <a href="#"><span class="badge badge-danger text-uppercase">html</span></a>
-                <a href="#"><span class="badge badge-primary text-uppercase">css</span></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum, similique debitis saepe soluta, vero provident ab atque fuga molestias magni repellat labore adipisci! Sapiente deleniti numquam minus adipisci reiciendis at, assumenda odit itaque tempore voluptas, repellat sequi ab quibusdam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi rem quasi reiciendis, ut eligendi, facilis deleniti temporibus vero ipsum accusamus.</p>
-                <a href="#" class="btn btn-outline-warning btn-sm">Leer más...</a>
-              </div>
-            </div>
-            <!-- Fin Artículos -->
-            <!-- Artículos -->
-            <div class="row mb-5">
-              <div class="col-3">
-                <img class="img-fluid" src="" alt="">
-                <p class="lead text-muted text-center">2 Diciembre 2017</p>
-              </div>
-              <div class="col-9">
-                <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
-                <a href="#"><span class="badge badge-danger text-uppercase">html</span></a>
-                <a href="#"><span class="badge badge-primary text-uppercase">css</span></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum, similique debitis saepe soluta, vero provident ab atque fuga molestias magni repellat labore adipisci! Sapiente deleniti numquam minus adipisci reiciendis at, assumenda odit itaque tempore voluptas, repellat sequi ab quibusdam.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi rem quasi reiciendis, ut eligendi, facilis deleniti temporibus vero ipsum accusamus.</p>
-                <a href="#" class="btn btn-outline-warning btn-sm">Leer más...</a>
-              </div>
-            </div>
+            <?php } ?>
             <!-- Fin Artículos -->
             <!-- Navegación páginas -->
               <div class="d-flex justify-content-center">

@@ -22,7 +22,23 @@ class Noticias_model extends CI_Model {
 
 	public function cargarNoticias(){
 		$query = $this->db->get('noticias');
-		return $query->result_array();
+		$result = $query->result_array();
+		$i = 0;
+		foreach($result as $noticia){
+			$query = $this->db->get_where('comentarios', array('id_noticia' => $noticia['id']));
+			$comentarios = $query->result_array();
+			if($comentarios){
+				//foreach($comentarios as $comentario){
+					$noticia['comentarios'] = $comentarios;
+					$result[$i] = $noticia;
+				//}
+			} else{
+				$noticia['comentarios'] = null;
+				$result[$i] = $noticia;
+			}
+			$i++;
+		}
+		return $result;
 	}
 
 	public function cargarUnaNoticia($id = null){
@@ -38,7 +54,8 @@ class Noticias_model extends CI_Model {
 	}
 
 	public function guardarComentario($comentario){
-		if($comentario['comentario'] != null){
+		$comentario['id_usuario'] = $this->session->userdata('id');
+		if($comentario['comentario'] != null && $comentario['id_noticia'] != null){
 			if($this->db->insert('comentarios', $comentario)){
 				return true;
 			}else{

@@ -49,4 +49,9 @@ class Miembros_controller extends CI_Controller {
 
 		$this->load->view('vista/header', isset($data)?$data:'');
 	}
+
+	public function cerrarSesion(){
+		$this->session->sess_destroy();
+		redirect('Index_controller/index');
+	}
 }
