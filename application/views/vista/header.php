@@ -18,10 +18,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav mr-auto">
-          <a class="nav-item nav-link active" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
-          <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Index_controller/index')?'active':'' ?>" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/index')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle <?php echo strpos(current_url(), 'Miembros_controller/index')?'active':'' ?>" id="navbarDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Miembros
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,19 +36,19 @@
               <?php } ?>
             </div>
           </div>
-          <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
-          <a class="nav-item nav-link" href="<?php echo site_url('Eventos_controller/index') ?>">Eventos</a>
-          <a class="nav-item nav-link" href="<?php echo site_url('Clasificados_controller/index') ?>">Clasificados</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/index')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/index')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/index') ?>">Eventos</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/index')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/index') ?>">Clasificados</a>
           <?php if($this->session->userdata('cedula') != null){ ?>
-            <a class="nav-item nav-link" href="<?php echo site_url('Clasificados_controller/guardarClasificado') ?>">Crear clasificado</a>
-            <a class="nav-item nav-link" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
+            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/guardarClasificado')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/guardarClasificado') ?>">Crear clasificado</a>
+            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/enviarMensaje')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
           <?php } ?>
           <a class="nav-item nav-link" href="#">FAQ</a>
           <?php if($this->session->userdata('admin') == 'admin'){ ?>
-            <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
-            <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/guardarFoto') ?>">Subir fotos</a>
-            <a class="nav-item nav-link" href="<?php echo site_url('Eventos_controller/guardarEvento') ?>">Crear evento</a>
-            <a class="nav-item nav-link" href="<?php echo site_url('Contacto_controller/index') ?>">Mensajes</a>
+            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/guardarNoticia')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
+            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/guardarFoto')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/guardarFoto') ?>">Subir fotos</a>
+            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/guardarEvento')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/guardarEvento') ?>">Crear evento</a>
+            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/index')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/index') ?>">Mensajes</a>
           <?php } ?>
         </div>
         <div>

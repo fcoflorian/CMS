@@ -28,10 +28,8 @@ class Noticias_model extends CI_Model {
 			$query = $this->db->get_where('comentarios', array('id_noticia' => $noticia['id']));
 			$comentarios = $query->result_array();
 			if($comentarios){
-				//foreach($comentarios as $comentario){
-					$noticia['comentarios'] = $comentarios;
-					$result[$i] = $noticia;
-				//}
+				$noticia['comentarios'] = $comentarios;
+				$result[$i] = $noticia;
 			} else{
 				$noticia['comentarios'] = null;
 				$result[$i] = $noticia;
@@ -55,6 +53,7 @@ class Noticias_model extends CI_Model {
 
 	public function guardarComentario($comentario){
 		$comentario['id_usuario'] = $this->session->userdata('id');
+		$comentario['nombre_usuario'] = $this->session->userdata('nombre');
 		if($comentario['comentario'] != null && $comentario['id_noticia'] != null){
 			if($this->db->insert('comentarios', $comentario)){
 				return true;
