@@ -22,20 +22,24 @@ class Eventos_model extends CI_Model {
 
 	public function cargarEventos(){
 		$query = $this->db->get('eventos');
-		$result = $query->result_array();
-		foreach($result as $evento){
-			$query = $this->db->get_where('asistencia_eventos', array('id_usuario' => $this->session->userdata('id'), 'id_evento' => $evento['id']));
-			if($query->row_array()){
-				$result['asistencia'] = true;
-			}
-		}
-		return $result;
+		return $query->result_array();
 	}
 
 	public function cargarUnEvento($id = null){
 		if($id != null){
 			$query = $this->db->get_where('eventos', array('id' => $id));
-			return $query->row_array();
+			$evento = $query->row_array();
+			if($evento){
+				$query = $this->db->get_where('asistencia_eventos', array('id_usuario' => $this->session->userdata('id'), 'id_evento' => $evento['id']));
+				$asistencia = $query->row_array();
+				if($asistencia){
+					$asistencia = true;
+				} else {
+					$asistencia = false;
+				}
+			}
+
+			return array($evento, $asistencia);
 		}
 	}
 
@@ -80,6 +84,16 @@ class Eventos_model extends CI_Model {
 	public function asistirAEvento($id = null){
 		if($id != null){
 			if($this->db->insert('asistencia_eventos', array('id_usuario' => $this->session->userdata('id'), 'id_evento' => $id))){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+
+	public function desasistirAEvento($id = null){
+		if($id != null){
+			if($this->db->delete('asistencia_eventos', array('id_usuario' => $this->session->userdata('id'), 'id_evento' => $id))){
 				return true;
 			}else{
 				return false;

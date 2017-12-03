@@ -52,14 +52,24 @@ class Eventos_controller extends CI_Controller {
 	public function asistirAEvento($id = null){
 		if($id != null){
 			if($this->Eventos_model->asistirAEvento($id)){
-				redirect('Eventos_controller/index');
+				redirect('Eventos_controller/verEvento/'.$id);
+			}
+		}
+	}
+
+	public function desasistirAEvento($id = null){
+		if($id != null){
+			if($this->Eventos_model->desasistirAEvento($id)){
+				redirect('Eventos_controller/verEvento/'.$id);
 			}
 		}
 	}
 
 	public function verEvento($id = null){
 		if($id != null){
-			$data['evento'] = $this->Eventos_model->cargarUnEvento($id);
+			$evento = $this->Eventos_model->cargarUnEvento($id);
+			$data['evento'] = $evento[0];
+			$data['asistencia'] = $evento[1];
 
 			$this->load->view('vista/ver_evento_view', $data);
 		}

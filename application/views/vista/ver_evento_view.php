@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Ver eventos</title>
+    <title>Ver evento</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
 
   <body>
@@ -14,29 +13,31 @@
     <!-- end header -->
 
     <main>
-        <div class="container">
+      <div class="container">
         <h2 class="text-center">Evento <?php echo $evento['titulo'] ?></h2><hr>
-          <div class="row d-flex justify-content-center">
-            <div class="card mb-3" style="width: 40rem;">
-              <img class="card-img-top img-fluid" src="http://localhost/cms/imagenes/1.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Klk con KlK</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
+        <div class="row d-flex justify-content-center">
+          <div class="card mb-3" style="width: 40rem;">
+            <img class="card-img-top img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($evento['imagen'])?$evento['imagen']:'';?>" alt="Imagen no disponible">
+            <div class="card-body">
+              <p class="card-text"><b>Descripción: </b><?php echo $evento['descripcion'] ?></p>
+              <p class="card-text"><b>Fecha: </b><?php $d = strtotime($evento['fecha']); echo date('F d, Y', $d); ?>. <b>Hora: </b><?php echo $evento['hora'] ?>.</p>
+            </div>
+            <div class="card-footer">
+              <div class="container">
+                <?php if($this->session->userdata('admin') != null){ ?>
+                  <a href="<?php echo site_url('Eventos_controller/guardarEvento/'.$evento['id']); ?>" class="btn btn-warning">Editar</a>
+                  <a href="<?php echo site_url('Eventos_controller/borrarEvento/'.$evento['id']); ?>" class="btn btn-danger">Eliminar</a>
+                <?php } ?>
+                <?php if($this->session->userdata('cedula') != null && $asistencia == false){ ?>
+                  <a href="<?php echo site_url('Eventos_controller/asistirAEvento/'.$evento['id']); ?>" class="btn btn-info">Asistir</a>
+                <?php }else if($this->session->userdata('cedula') != null && $asistencia == true){ ?>
+                  <a href="<?php echo site_url('Eventos_controller/desasistirAEvento/'.$evento['id']); ?>" class="btn btn-info">Ya no asistiré</a>
+                <?php } ?>
+              </div><br>
             </div>
           </div>
-          <!-- <div class="row d-flex justify-content-center">
-            <div class="card mb-3" style="width: 40rem;">
-              <img class="card-img-top img-fluid" src="http://localhost/cms/imagenes/1.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div> -->
         </div>
+      </div>
     </main>
 
     <footer class="footer">

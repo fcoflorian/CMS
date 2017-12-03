@@ -27,14 +27,14 @@ class Miembros_controller extends CI_Controller {
 		if($_POST){
 			$guardar = $this->Miembros_model->guardarMiembro($_POST);
 			if($guardar[0]){
-				redirect("Index_controller/index");
+				redirect('Index_controller/index');
 			}else{
 				$data['errorRegistro'] = $guardar[1];
 				$data['miembro'] = $guardar[2];
+
+				$this->load->view('vista/header', isset($data)?$data:'');
 			}
 		}
-
-		$this->load->view('vista/header', isset($data)?$data:'');
 	}
 
 	public function iniciarSesion(){
@@ -43,11 +43,11 @@ class Miembros_controller extends CI_Controller {
 				redirect('Index_controller/index');
 			}else{
 				$data['cedula'] = $_POST['cedula'];
-				$data['errorLogin'] = 'Cedula incorrecta';			
+				$data['errorLogin'] = 'Cedula incorrecta';		
+
+				$this->load->view('vista/header', isset($data)?$data:'');	
 			}
 		}
-
-		$this->load->view('vista/header', isset($data)?$data:'');
 	}
 
 	public function cerrarSesion(){
