@@ -44,7 +44,7 @@
             </div>
             <div class="col-9">
               <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
-              <p><?php echo $noticia['texto'] ?></p>
+              <p><?php echo $noticia['descripcion'] ?></p>
             </div>
           </div>
         </div>

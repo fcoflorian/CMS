@@ -54,7 +54,7 @@
               });
 
               (function(i){marker.addListener('click', function(){
-                  location.href = "<?php echo site_url('Eventos_controller/ver/'); ?>" + id[i];
+                  location.href = "<?php echo site_url('Eventos_controller/verEvento/'); ?>" + id[i];
                 });
               })(i);
             }

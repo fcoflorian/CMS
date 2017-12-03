@@ -25,13 +25,13 @@
     <main>
       <div class="container">
         <h2 class="text-center">Crear noticia</h2><hr>
-        <form action="" method="post">
+        <form action="<?php echo isset($noticia['id'])?site_url('Noticias_controller/guardarNoticia/'.$noticia['id']):site_url('Noticias_controller/guardarNoticia'); ?>" method="post" enctype="multipart/form-data">
 
           <div class="row">
             <div class="col col-md-12">
               <div class="input-group form-group">
                 <label for="titulo" class="input-group-addon">Titulo</label>
-                <input type="text" class="form-control" name="titulo" value="">
+                <input type="text" class="form-control" name="titulo" value="<?php echo isset($noticia['titulo'])?$noticia['titulo']:'' ?>">
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
             <div class="col col-md-12">
               <div class="input-group form-group">
                 <label for="descripcion" class="input-group-addon">Descripcion</label>
-                <textarea name="descripcion" id="mytextarea" class="form-control"></textarea>
+                <textarea name="descripcion" id="mytextarea" class="form-control"><?php echo isset($noticia['descripcion'])?$noticia['descripcion']:'' ?></textarea>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
             <div class="col col-md-12">
               <div class="input-group form-group">
                 <label for="foto" class="input-group-addon">Imagen</label>
-                <input type="file" class="form-control" name="imagen" value="">
+                <input type="file" class="form-control" name="imagen">
               </div>
             </div>
           </div>

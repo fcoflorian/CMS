@@ -21,60 +21,73 @@
           <!-- Sección de noticias -->
           <div class="col-12 col-lg-9 mb-5">
             <!-- Artículos -->
-            <?php foreach($noticias as $noticia){ ?>
-              <div class="row mb-5">
-                <div class="col-3">
-                  <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="">
-                  <p class="lead text-muted text-center"><?php $d = strtotime($noticia['fecha']); echo date('F d, Y', $d); ?></p>
-                </div>
-                <div class="col-9">
-                  <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
-                  <p><?php echo $noticia['texto'] ?></p>
-                </div>
-                
-                <!--Comentarios-->
+            <?php for($i = ($paginaActual-1) * 10; $i < $paginaActual * 10; $i++){ ?>
+              <?php if($i < count($noticias)){ ?>
+                <div class="row mb-5">
+                  <div class="col-3">
+                    <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticias[$i]['imagen'])?$noticias[$i]['imagen']:'';?>" alt="">
+                    <p class="lead text-muted text-center"><?php $d = strtotime($noticias[$i]['fecha']); echo date('F d, Y', $d); ?></p>
+                  </div>
+                  <div class="col-9">
+                    <a href="#"><h3><?php echo $noticias[$i]['titulo'] ?></h3></a>
+                    <p><?php echo $noticias[$i]['descripcion'] ?></p>
+                  </div>
+                  
+                  <!--Comentarios-->
 
-                <div class="container">
-                  <hr>
-                  <?php foreach($noticia['comentarios'] as $comentario){ ?>
-                    <div>
-                      <p><?php echo $comentario['comentario'] ?></p>
-                    </div>
-                  <?php } ?>
-                  <div class="d-flex justify-content-center">
-                      <form action="" method="post">
-                          <input type="hidden" name="id_noticia" class="form-control" value="<?php echo $noticia['id'] ?>">
-                          <div class="row">
-                            <div class="col-auto">
-                              <div class="input-group form-group">
-                                <label for="comentario" class="input-group-addon">Comentario</label>
-                                
-                                <textarea rows="2" cols="80" name="comentario"></textarea>
+                  <div class="container">
+                    <hr>
+                    <?php if($noticias[$i]['comentarios'] != null){ ?>
+                      <?php foreach($noticias[$i]['comentarios'] as $comentario){ ?>
+                        <div>
+                          <p><?php echo $comentario['comentario'] ?></p>
+                        </div>
+                      <?php } ?>
+                    <?php } ?>
+                    <div class="d-flex justify-content-center">
+                        <form action="" method="post">
+                            <input type="hidden" name="id_noticia" class="form-control" value="<?php echo $noticias[$i]['id'] ?>">
+                            <div class="row">
+                              <div class="col-auto">
+                                <div class="input-group form-group">
+                                  <label for="comentario" class="input-group-addon">Comentario</label>
+                                  
+                                  <textarea rows="2" cols="80" name="comentario"></textarea>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="text-center">
-                              <div class="input-group form-group">
-                                  <input type="submit" class="btn btn-success" value="Comentar">    
-                              </div>
-                          </div>
-                      </form>
+                            <div class="text-center">
+                                <div class="input-group form-group">
+                                    <input type="submit" class="btn btn-success" value="Comentar">    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                   </div>
+
+                  <!--Comentarios-->
+
                 </div>
-                <!--Comentarios-->
-              </div>
+              <?php } ?>
             <?php } ?>
             <!-- Fin Artículos -->
             <!-- Navegación páginas -->
               <div class="d-flex justify-content-center">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                   <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-secondary">Inicio</button>
-                    <button type="button" class="btn btn-secondary active">1</button>
-                    <button type="button" class="btn btn-secondary">2</button>
-                    <button type="button" class="btn btn-secondary">3</button>
-                    <button type="button" class="btn btn-secondary">4</button>
-                    <button type="button" class="btn btn-secondary">Final</button>
+                    <?php if($numeroDePaginas > 1){ ?>
+                      <?php if($paginaActual != 1){ ?>
+                        <a href="<?php echo site_url('Noticias_controller/index/'.$paginaActual-1); ?>" class="btn btn-secondary">Anterior</a>
+                      <?php } ?>
+
+                      <?php for($i = 0; $i < $numeroDePaginas; $i++){ ?>
+                        <a href="<?php echo site_url('Noticias_controller/index/'.$i); ?>" class="btn btn-secondary"><?php echo $i ?></a>
+                      <?php } ?>
+
+                      <?php if($paginaActual != $numeroDePaginas){ ?>
+                        <a href="<?php echo site_url('Noticias_controller/index/'.$paginaActual+1); ?>" class="btn btn-secondary">Siguiente</a>
+                      <?php } ?>
+                    <?php } ?>
                   </div>
                 </div>
               </div>

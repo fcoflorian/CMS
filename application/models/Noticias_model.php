@@ -69,7 +69,7 @@ class Noticias_model extends CI_Model {
 	public function guardarNoticia($noticia){
 		$noticia['imagen'] = $this->guardarImagen('imagen');
 		$noticia['fecha'] = date('Y-m-d h:i:s');
-		if($noticia['titulo'] != null && $noticia['texto'] != null && $noticia['imagen'] != null){
+		if($noticia['titulo'] != null && $noticia['descripcion'] != null && $noticia['imagen'] != null){
 			if($this->db->insert('noticias', $noticia)){
 				return true;
 			}else{
