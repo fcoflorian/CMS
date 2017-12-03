@@ -41,7 +41,7 @@
               <div class="row mb-5">
                 <div class="col-3">
                   <img class="img-fluid" src="../klk.png" alt="">
-                  <p class="lead text-muted text-center"><?php echo $noticia['fecha'] ?></p>
+                  <p class="lead text-muted text-center"><?php $d = strtotime($noticia['fecha']); echo date('F d, Y', $d); ?></p>
                 </div>
                 <div class="col-9">
                   <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
