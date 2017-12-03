@@ -8,7 +8,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
   </head>
 
   <body>
@@ -17,25 +16,27 @@
     <!-- end header -->
 
     <main>
-      <h2 class="text-center">Lista de Miembros</h2>
+      <h2 class="text-center mt-5 mb-5">Lista de miembros</h2>
       <div class="container">
-        <table class="table table-hover">
-          <tr>
-            <td>Foto</td>
-            <td>Nombre</td>
-            <td>Telefono</td>
-            <td>Corre</td>
-          </tr>
-          <?php
-            foreach($rs as $fila){
-              echo "<tr>
-                <td>{$fila['foto']}</td>
-                <td>{$fila['nombre']}</td>
-                <td>{$fila['telefono']}</td>
-                <td>{$fila['correo']}</td>
-              </tr>";
-            }
-          ?>
+        <table class="table table-hover table-responsive table-bordered">
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>Correo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($miembros as $miembro){ ?>
+              <tr>
+                <td><?php echo 'Foto' ?></td>
+                <td><?php echo $miembro['nombre'] ?></td>
+                <td><?php echo $miembro['telefono'] ?></td>
+                <td><?php echo $miembro['correo'] ?></td>
+              </tr>
+            <?php } ?>
+          </tbody>
         </table>
       </div>
     </main>

@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-    <script src='tinymce/tinymce.min.js'></script>
+    <script src="<?php echo str_replace("index.php","",site_url()); ?>application/views/vista/admin/tinymce/tinymce.min.js"></script>
     <script>
       tinymce.init({
         selector: '#mytextarea'
@@ -24,7 +24,7 @@
 
     <main>
       <div class="container">
-        <h1 class="text-center">Crear Noticia</h1><hr>
+        <h2 class="text-center">Crear noticia</h2><hr>
         <form action="" method="post">
 
           <div class="row">
@@ -48,8 +48,8 @@
           <div class="row">
             <div class="col col-md-12">
               <div class="input-group form-group">
-                <label for="foto" class="input-group-addon">Fotos</label>
-                <input type="file" class="form-control" name="foto" value="">
+                <label for="foto" class="input-group-addon">Imagen</label>
+                <input type="file" class="form-control" name="imagen" value="">
               </div>
             </div>
           </div>

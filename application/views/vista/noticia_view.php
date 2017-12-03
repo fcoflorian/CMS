@@ -6,13 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Noticias</title>
-    <meta name="description" content="Curso de Bootstrap Gratis">
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Ignacio Gutiérrez">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/bootstrap.css">
     <!-- Estilos en Css -->
     <style>
       .slider{
@@ -40,7 +36,7 @@
             <?php foreach($noticias as $noticia){ ?>
               <div class="row mb-5">
                 <div class="col-3">
-                  <img class="img-fluid" src="../klk.png" alt="">
+                  <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="">
                   <p class="lead text-muted text-center"><?php $d = strtotime($noticia['fecha']); echo date('F d, Y', $d); ?></p>
                 </div>
                 <div class="col-9">
