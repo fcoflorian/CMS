@@ -32,6 +32,7 @@
             <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
             <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/guardarFoto') ?>">Subir fotos</a>
             <a class="nav-item nav-link" href="<?php echo site_url('Eventos_controller/guardarEvento') ?>">Crear evento</a>
+            <a class="nav-item nav-link" href="<?php echo site_url('Contacto_controller/index') ?>">Mensajes</a>
           <?php } ?>
         </div>
         <div>
