@@ -29,7 +29,7 @@ class Miembros_controller extends CI_Controller {
 			if($guardar[0]){
 				redirect("Index_controller/index");
 			}else{
-				$data['error'] = $guardar[1];
+				$data['errorRegistro'] = $guardar[1];
 				$data['miembro'] = $guardar[2];
 			}
 		}
@@ -43,7 +43,7 @@ class Miembros_controller extends CI_Controller {
 				redirect('Index_controller/index');
 			}else{
 				$data['cedula'] = $_POST['cedula'];
-				$data['error'] = 'Cedula incorrecta';			
+				$data['errorLogin'] = 'Cedula incorrecta';			
 			}
 		}
 

@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 </head>
@@ -76,7 +75,7 @@
                         <div class="col col-md-12">
                             <div class="form-group input-group">
                                 <label for="cedula" class="input-group-addon">Cedula</label>
-                                <input type="text" name="cedula" class="form-control" placeholder="Cedula">
+                                <input type="number" name="cedula" class="form-control" placeholder="Cedula" value="<?php echo isset($cedula)?$cedula:''; ?>">
                             </div>
                         </div>
                     </div>
@@ -84,6 +83,12 @@
                     <div class="text-center"><hr>
                       <input type="submit" class="btn btn-primary" value="Iniciar sesión">
                     </div>
+
+                    <?php if(isset($errorLogin)){ ?>
+                      <div class="alert alert-danger">
+                        <span><?php echo $errorLogin ?></span>
+                      </div>
+                    <?php } ?>
                 </form>
             </div>
         </div>
@@ -108,59 +113,44 @@
               <div class="row">
                 <div class="col col-sx-6">
                   <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Cedula</label>
-                    <input type="number" name="cedula" class="form-control" placeholder="Cedula">
+                    <label for="cedula" class="input-group-addon">Cedula</label>
+                    <input type="number" name="cedula" class="form-control" placeholder="Cedula" value="<?php echo isset($miembro['cedula'])?$miembro['cedula']:''; ?>">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col col-sx-6">
                   <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Nombre</label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                    <label for="nombre" class="input-group-addon">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="<?php echo isset($miembro['nombre'])?$miembro['nombre']:''; ?>">
                   </div>
                 </div>
                 <div class="col col-sx-6">
                   <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Apellido</label>
-                    <input type="text" name="apellido" class="form-control" placeholder="Apellido">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col col-sx-6">
-                  <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Telefono</label>
-                    <input type="number" name="telefono" class="form-control" placeholder="Telefono">
-                  </div>
-                </div>
-                <div class="col col-sx-6">
-                  <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Celular</label>
-                    <input type="number" name="celular" class="form-control" placeholder="Celular">
+                    <label for="apellido" class="input-group-addon">Apellido</label>
+                    <input type="text" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo isset($miembro['apellido'])?$miembro['apellido']:''; ?>">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col col-sx-6">
                   <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Direccion</label>
-                    <input type="text" name="direccion" class="form-control" placeholder="Direccion">
+                    <label for="telefono" class="input-group-addon">Telefono</label>
+                    <input type="number" name="telefono" class="form-control" placeholder="Telefono" value="<?php echo isset($miembro['telefono'])?$miembro['telefono']:''; ?>">
+                  </div>
+                </div>
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="celular" class="input-group-addon">Celular</label>
+                    <input type="number" name="celular" class="form-control" placeholder="Celular" value="<?php echo isset($miembro['celular'])?$miembro['celular']:''; ?>">
                   </div>
                 </div>
               </div>
-
               <div class="row">
                 <div class="col col-sx-6">
                   <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Latitud</label>
-                    <input type="text" name="latitud" class="form-control" placeholder="Latitud">
-                  </div>
-                </div>
-                <div class="col col-sx-6">
-                  <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Longitud</label>
-                    <input type="text" name="longitud" class="form-control" placeholder="Longitud">
+                    <label for="direccion" class="input-group-addon">Direccion</label>
+                    <input type="text" name="direccion" class="form-control" placeholder="Direccion" value="<?php echo isset($miembro['direccion'])?$miembro['direccion']:''; ?>">
                   </div>
                 </div>
               </div>
@@ -168,8 +158,23 @@
               <div class="row">
                 <div class="col col-sx-6">
                   <div class="input-group form-group">
-                    <label for="" class="input-group-addon">Email</label>
-                    <input type="email" name="correo" class="form-control" placeholder="Email">
+                    <label for="latitud" class="input-group-addon">Latitud</label>
+                    <input type="text" name="latitud" class="form-control" placeholder="Latitud" value="<?php echo isset($miembro['latitud'])?$miembro['latitud']:''; ?>">
+                  </div>
+                </div>
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="longitud" class="input-group-addon">Longitud</label>
+                    <input type="text" name="longitud" class="form-control" placeholder="Longitud" value="<?php echo isset($miembro['longitud'])?$miembro['longitud']:''; ?>">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="correo" class="input-group-addon">Correo</label>
+                    <input type="email" name="correo" class="form-control" placeholder="Correo" value="<?php echo isset($miembro['correo'])?$miembro['correo']:''; ?>">
                   </div>
                 </div>
               </div>
@@ -178,6 +183,11 @@
                 <input class="btn btn-primary" type="submit" value="Registrarse">
               </div>
 
+              <?php if(isset($errorRegistro)){ ?>
+                <div class="alert alert-danger">
+                  <span><?php echo $errorRegistro ?></span>
+                </div>
+              <?php } ?>
             </form><hr>
           </div>
       </div>
@@ -187,7 +197,19 @@
   <!--Modal register-->
 
 </header>
-  
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<?php if(isset($cedula)){ ?>
+  <script>
+    $('#login').modal({ show:true });
+  </script>
+<?php } ?>
+<?php if(isset($miembro)){ ?>
+  <script>
+    $('#register').modal({ show:true });
+  </script>
+<?php } ?>
 </body>
 </html>
 
