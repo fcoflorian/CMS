@@ -26,7 +26,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
                 <?php foreach($miembros as $miembro){ ?>
                   <tr>
                     <td><?php echo 'Foto' ?></td>
@@ -34,27 +33,7 @@
                     <td><?php echo $miembro['telefono'] ?></td>
                     <td><?php echo $miembro['correo'] ?></td>
                   </tr>
-                  <tr>
-                    <td><?php echo 'Foto' ?></td>
-                    <td><?php echo $miembro['nombre'] ?></td>
-                    <td><?php echo $miembro['telefono'] ?></td>
-                    <td><?php echo $miembro['correo'] ?></td>
-                  </tr>
-                  <tr>
-                    <td><?php echo 'Foto' ?></td>
-                    <td><?php echo $miembro['nombre'] ?></td>
-                    <td><?php echo $miembro['telefono'] ?></td>
-                    <td><?php echo $miembro['correo'] ?></td>
-                  </tr>
-                  <tr>
-                    <td><?php echo 'Foto' ?></td>
-                    <td><?php echo $miembro['nombre'] ?></td>
-                    <td><?php echo $miembro['telefono'] ?></td>
-                    <td><?php echo $miembro['correo'] ?></td>
-                  </tr>
-                  
                 <?php } ?>
-              </tr>
             </tbody>
           </table>
         </div>
