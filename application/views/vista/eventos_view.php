@@ -9,6 +9,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
+    <style>
+      #map {
+        height: 650px;
+        width: 100%;
+        margin-bottom:100px;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,8 +25,44 @@
 
     <main>
       <div class="container">
-        <h2>Eventos cercanos</h2>
-        
+        <h2 class="mt-5 mb-5">Eventos cercanos</h2>
+
+        <div id="map"></div>
+        <script>
+          function initMap() {
+            var uluru = [];
+            var id = [];
+
+            <?php foreach($eventos as $evento){ ?>
+              var evento = {lat: <?php echo $evento['latitud']; ?>, lng: <?php echo $evento['longitud']; ?>};
+              uluru.push(evento);
+
+              var idEvento = <?php echo $evento['id'];?>;
+              id.push(idEvento);
+            <?php } ?>
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 8,
+              center: {lat: 18.459013, lng: -69.913839}
+            });
+
+            for(var i = 0; i < uluru.length; i++){
+              var marker = new google.maps.Marker({
+                position: uluru[i],
+                map: map,
+                title: 'Click para ver detalles'
+              });
+
+              (function(i){marker.addListener('click', function(){
+                  location.href = "<?php echo site_url('Eventos_controller/ver/'); ?>" + id[i];
+                });
+              })(i);
+            }
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHzIYT_dSmPko_c4U1qYlkuneOzdGpgQ&callback=initMap">
+        </script>
       </div>
     </main>
 

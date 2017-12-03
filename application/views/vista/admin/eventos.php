@@ -18,20 +18,25 @@
 
     <main>
       <div class="container">
-        <h1 class="text-center">Eventos</h1><hr>
+        <h2 class="text-center">Eventos</h2><hr>
           <form action="" method="post">
-            <input type="hidden" name="id" value="">
             <div class="row">
-              <div class="col col-sx-6">
+              <div class="col col-sx-4">
                 <div class="input-group form-group">
                   <label for="titulo" class="input-group-addon">Titulo</label>
                   <input type="text" name="titulo" class="form-control">
                 </div>
               </div>
-              <div class="col col-sx-6">
+              <div class="col col-sx-4">
                 <div class="input-group form-group">
                   <label for="fecha" class="input-group-addon">Fecha</label>
                   <input type="date" name="fecha" class="form-control">
+                </div>
+              </div>
+              <div class="col col-sx-4">
+                <div class="input-group form-group">
+                  <label for="hora" class="input-group-addon">Hora</label>
+                  <input type="text" name="hora" class="form-control">
                 </div>
               </div>
             </div>
@@ -52,6 +57,7 @@
                   <input type="text" name="latitud" class="form-control">
                 </div>
               </div>
+
               <div class="col col-sx-6">
                 <div class="input-group form-group">
                   <label for="longitud" class="input-group-addon">Longitud</label>
@@ -63,15 +69,15 @@
             <div class="row">
               <div class="col col-sx-6">
                 <div class="input-group form-group">
-                  <label for="foto" class="input-group-addon">Fotos</label>
-                  <textarea name="foto" class="form-control"></textarea>
+                  <label for="imagen" class="input-group-addon">Imagen</label>
+                  <input type="file" name="imagen" class="form-control">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col col-sx-6">
                 <div class="input-group form-group">
-                  <input type="submit" class="btn btn-primary" value="Publicar">
+                  <input type="submit" class="btn btn-primary" value="Crear">
                 </div>
               </div>
             </div>

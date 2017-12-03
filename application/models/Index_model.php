@@ -19,7 +19,7 @@ class Index_model extends CI_Model {
 
 	public function cargarUltimos5Anuncios(){
 		$query = $this->db->limit(5)
-				->get('anuncios');
+				->get('clasificados');
 		return $query->result_array();
 	}
 }

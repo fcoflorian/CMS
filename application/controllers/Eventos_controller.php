@@ -56,4 +56,12 @@ class Eventos_controller extends CI_Controller {
 			}
 		}
 	}
+
+	public function verEvento($id = null){
+		if($id != null){
+			$data['evento'] = $this->Eventos_model->cargarUnEvento($id);
+
+			$this->load->view('vista/ver_evento_view');
+		}
+	}
 }

@@ -41,7 +41,7 @@ class Eventos_model extends CI_Model {
 
 	public function guardarEvento($evento){
 		$evento['imagen'] = $this->guardarImagen('imagen');
-		if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['imagen'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
+		if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['hora'] != null && $evento['imagen'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
 			if($this->db->insert('eventos', $evento)){
 				return true;
 			}else{
@@ -54,7 +54,7 @@ class Eventos_model extends CI_Model {
 
 	public function editarEvento($id = null, $evento){
 		if($id != null){
-			if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
+			if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['hora'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
 				$nombreImagen = $this->guardarImagen('imagen');
 				if($nombreImagen != null){
 					$evento['imagen'] = $nombreImagen;

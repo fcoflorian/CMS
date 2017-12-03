@@ -10,7 +10,7 @@
           <a class="nav-item nav-link active" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
           <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Miembros
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -24,9 +24,9 @@
             </div>
           </div>
           <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
-          <a class="nav-item nav-link" href="#">Eventos</a>
-          <a class="nav-item nav-link" href="#">Clasificados</a>
-          <a class="nav-item nav-link" href="#">Contacto</a>
+          <a class="nav-item nav-link" href="<?php echo site_url('Eventos_controller/index') ?>">Eventos</a>
+          <a class="nav-item nav-link" href="<?php echo site_url('Clasificados_controller/index') ?>">Clasificados</a>
+          <a class="nav-item nav-link" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
           <a class="nav-item nav-link" href="#">FAQ</a>
           <?php if($this->session->userdata('admin') == 'admin'){ ?>
             <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
@@ -79,6 +79,7 @@
   </div>
 
   <!--Modal login-->
+
   <!--Modal register-->
 
   <div class="modal fade bd-example-modal-lg" id="register" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -172,4 +173,5 @@
   </div>
 
   <!--Modal register-->
+
 </header>
