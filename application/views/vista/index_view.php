@@ -16,7 +16,7 @@
     <!-- header -->
       <?php $this->load->view('vista/header') ?>
 
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" style="width: 90rem;">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img class="d-block img-fluid w-100" src="http://localhost/cms/imagenes/2.jpg" alt="First slide">
@@ -41,6 +41,61 @@
 
     <main>
       <?php foreach($noticias as $noticia){ ?>
+        <div class="container mt-2">
+          <div class="row mb-3">
+            <div class="col-3">
+              <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="">
+              <p class="lead text-muted text-center"><?php $d = strtotime($noticia['fecha']); echo date('F d, Y', $d); ?></p>
+            </div>
+            <div class="col-9">
+              <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
+              <p><?php echo $noticia['texto'] ?></p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mt-2">
+          <div class="row mb-3">
+            <div class="col-3">
+              <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="">
+              <p class="lead text-muted text-center"><?php $d = strtotime($noticia['fecha']); echo date('F d, Y', $d); ?></p>
+            </div>
+            <div class="col-9">
+              <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
+              <p><?php echo $noticia['texto'] ?></p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-2">
+          <div class="row mb-3">
+            <div class="col-3">
+              <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="">
+              <p class="lead text-muted text-center"><?php $d = strtotime($noticia['fecha']); echo date('F d, Y', $d); ?></p>
+            </div>
+            <div class="col-9">
+              <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
+              <p><?php echo $noticia['texto'] ?></p>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mt-2">
+          <div class="row mb-3">
+            <div class="col-3">
+              <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="">
+              <p class="lead text-muted text-center"><?php $d = strtotime($noticia['fecha']); echo date('F d, Y', $d); ?></p>
+            </div>
+            <div class="col-9">
+              <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
+              <p><?php echo $noticia['texto'] ?></p>
+            </div>
+            </div>
+          </div>
+        </div>
+
         <div class="container mt-2">
           <div class="row mb-3">
             <div class="col-3">

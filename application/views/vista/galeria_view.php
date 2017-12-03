@@ -24,11 +24,11 @@
         <h1 class="text-center">Galeria  de Fotos</h1><hr>
         <div class="card-deck">
           <div class="card">
-            <img class="card-img-top img-fluid" src="http://localhost/cms/imagenes/1.jpg" alt="Card image cap">
+            <img class="card-img-top img-fluid" src=""" alt="Card image cap"> <!-- fotos -->
             <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h4 class="card-title"><?php  ?></h4> <!-- titulo -->
+              <p class="card-text"><?php  ?></p> <!-- descripcion -->
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> <!-- lo que tu quiera aqui -->
             </div>
           </div>
           <div class="card">
