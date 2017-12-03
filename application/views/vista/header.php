@@ -37,7 +37,10 @@
           <a class="nav-item nav-link" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
           <a class="nav-item nav-link" href="<?php echo site_url('Eventos_controller/index') ?>">Eventos</a>
           <a class="nav-item nav-link" href="<?php echo site_url('Clasificados_controller/index') ?>">Clasificados</a>
-          <a class="nav-item nav-link" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
+          <?php if($this->session->userdata('cedula') != null){ ?>
+            <a class="nav-item nav-link" href="<?php echo site_url('Clasificados_controller/guardarClasificado') ?>">Crear clasificado</a>
+            <a class="nav-item nav-link" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
+          <?php } ?>
           <a class="nav-item nav-link" href="#">FAQ</a>
           <?php if($this->session->userdata('admin') == 'admin'){ ?>
             <a class="nav-item nav-link" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
