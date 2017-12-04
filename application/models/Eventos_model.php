@@ -43,6 +43,14 @@ class Eventos_model extends CI_Model {
 		}
 	}
 
+	public function cargarMiembrosEvento($id = null){
+		if($id != null){
+			$sql = "SELECT * FROM miembros INNER JOIN asistencia_eventos ON miembros.id = asistencia_eventos.id_evento WHERE asistencia_eventos.id_evento = ?";
+			$query = $this->db->query($sql, array($id));
+			return $query->result_array();
+		}
+	}
+
 	public function guardarEvento($evento){
 		$evento['imagen'] = $this->guardarImagen('imagen');
 		if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['hora'] != null && $evento['imagen'] != null && $evento['latitud'] != null && $evento['longitud'] != null){

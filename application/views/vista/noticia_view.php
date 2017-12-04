@@ -32,8 +32,10 @@
                   <p><?php echo $noticias[$i]['descripcion'] ?></p>
                 </div>
 
-                <a href="<?php echo site_url('Noticias_controller/guardarNoticia/'.$noticias[$i]['id']); ?>" class="btn btn-warning">Editar</a>
-                <a href="<?php echo site_url('Noticias_controller/borrarNoticia/'.$noticias[$i]['id']); ?>" class="btn btn-danger">Eliminar</a>
+                <?php if($this->session->userdata('admin') != null){ ?>
+                  <a href="<?php echo site_url('Noticias_controller/guardarNoticia/'.$noticias[$i]['id']); ?>" class="btn btn-warning">Editar</a>
+                  <a href="<?php echo site_url('Noticias_controller/borrarNoticia/'.$noticias[$i]['id']); ?>" class="btn btn-danger">Eliminar</a>
+                <?php } ?>
                 
                 <!--Comentarios-->
 

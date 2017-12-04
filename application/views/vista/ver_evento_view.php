@@ -37,6 +37,29 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <h3>Miembros que asistirán</h3>
+          <table class="table table-hover table-responsive table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Foto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Correo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach($miembros as $miembro){ ?>
+                <tr>
+                  <td><?php echo 'Foto' ?></td>
+                  <td><?php echo $miembro['nombre'] ?></td>
+                  <td><?php echo $miembro['telefono'] ?></td>
+                  <td><?php echo $miembro['correo'] ?></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
 

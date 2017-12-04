@@ -70,6 +70,7 @@ class Eventos_controller extends CI_Controller {
 			$evento = $this->Eventos_model->cargarUnEvento($id);
 			$data['evento'] = $evento[0];
 			$data['asistencia'] = $evento[1];
+			$data['miembros'] = $this->Eventos_model->cargarMiembrosEvento($id);
 
 			$this->load->view('vista/ver_evento_view', $data);
 		}
