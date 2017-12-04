@@ -22,7 +22,7 @@
                     <div class="col col-sx-12">
                         <div class="input-group form-group">
                             <label for="nombre_equipo" class="input-group-addon">Nombre del equipo</label>
-                            <input type="text" name="nombre_equipo" class="form-control" value="<?php echo isset($parametros['nombre_equipo'])?$parametros['nombre_equipo']:'' ?>">
+                            <input type="text" name="nombre_equipo" class="form-control" value="<?php echo isset($parametros['nombre_equipo'])?$parametros['nombre_equipo']:'' ?>" placeholder="Nombre del equipo">
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="col col-sx-12">
                         <div class="input-group form-group">
                             <label for="titulo" class="input-group-addon">Titulo de la pagina</label>
-                            <input type="text" name="titulo" class="form-control" value="<?php echo isset($parametros['titulo'])?$parametros['titulo']:'' ?>">
+                            <input type="text" name="titulo" class="form-control" value="<?php echo isset($parametros['titulo'])?$parametros['titulo']:'' ?>" placeholder="Titulo de la pagina">
                         </div>
                     </div>
                 </div>
@@ -55,6 +55,6 @@
             <?php } ?>
         </div>
     </main>
-    <?php $this->load->view('vista/footer') ?>
+
 </body>
 </html>

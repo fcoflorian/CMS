@@ -18,7 +18,7 @@
 					<div class="col col-md-6">
 						<div class="input-group form-group">
 							<label for="nombre" class="input-group-addon">Nombre</label>
-							<input type="text" class="form-control" name="nombre" value="<?php echo isset($foto['nombre'])?$foto['nombre']:'';?>">
+							<input type="text" class="form-control" name="nombre" value="<?php echo isset($foto['nombre'])?$foto['nombre']:'';?>" placeholder="Nombre">
 						</div>
 					</div>
 				</div>
@@ -27,7 +27,7 @@
 					<div class="col col-md-6">
 						<div class="input-group form-group">
 							<label for="descripcion" class="input-group-addon">Descripción</label>
-							<input type="text" class="form-control" name="descripcion" value="<?php echo isset($foto['descripcion'])?$foto['descripcion']:'';?>">
+							<input type="text" class="form-control" name="descripcion" value="<?php echo isset($foto['descripcion'])?$foto['descripcion']:'';?>" placeholder="Descripcion">
 						</div>
 					</div>
 				</div>
@@ -49,6 +49,6 @@
             <?php } ?>
 		</div>
 	</main>
-	<?php $this->load->view('vista/footer') ?>
+
 </body>
 </html>
