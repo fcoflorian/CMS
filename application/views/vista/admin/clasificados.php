@@ -54,7 +54,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-
+        <?php $this->load->view('vista/footer') ?>
     </footer>
     <!-- Fin Footer -->
   </body>

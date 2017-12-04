@@ -5,7 +5,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script src="<?php echo str_replace("index.php","",site_url()); ?>application/views/vista/admin/tinymce/tinymce.min.js"></script>
     
     <script>
@@ -57,10 +56,6 @@
       </div>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </div>
-    </footer>
+    <?php $this->load->view('vista/footer') ?>
   </body>
 </html>

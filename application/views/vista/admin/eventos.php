@@ -87,5 +87,6 @@
         <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </div>
     </footer>
+    <?php $this->load->view('vista/footer') ?>
   </body>
 </html>
