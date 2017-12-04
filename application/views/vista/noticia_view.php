@@ -22,7 +22,7 @@
                 <hr>
                 <div class="row mb-5">
                   <div class="col-3">
-                    <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticias[$i]['imagen'])?$noticias[$i]['imagen']:'';?>" alt="">
+                    <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticias[$i]['imagen'])?$noticias[$i]['imagen']:'';?>" alt="Imagen no disponible">
                     <p class="lead text-muted text-center"><?php $d = strtotime($noticias[$i]['fecha']); echo date('F d, Y', $d); ?></p>
                   </div>
                   <div class="col-9">

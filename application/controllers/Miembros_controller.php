@@ -67,4 +67,8 @@ class Miembros_controller extends CI_Controller {
 		$this->Miembros_model->exportarMiembros();
 		redirect('Miembros_controller/index');
 	}
+
+	public function miPerfil(){
+		$this->load->view('vista/mi_perfil');
+	}
 }

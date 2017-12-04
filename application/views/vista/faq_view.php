@@ -17,6 +17,10 @@
 	        <?php foreach($faqs as $faq){ ?>
 				<h5><?php echo $faq['pregunta'] ?></h5>
 				<p><?php echo $faq['respuesta'] ?></p>
+				<?php if($this->session->userdata('admin') != null){ ?>
+					<a href="<?php echo site_url('Faq_controller/guardarFaq/'.$faq['id']); ?>" class="btn btn-warning">Editar</a>
+              		<a href="<?php echo site_url('Faq_controller/borrarFaq/'.$faq['id']); ?>" class="btn btn-danger">Eliminar</a>
+              	<?php } ?>
 	        <?php } ?>
 	    </div>
     </main>

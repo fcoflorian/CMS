@@ -21,7 +21,7 @@
                 <div class="col-12 col-lg-9 mb-5">
                   <div class="row mb-5">
                     <div class="col-3">
-                      <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($clasificados[$i]['imagen'])?$clasificados[$i]['imagen']:'';?>" alt="">
+                      <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($clasificados[$i]['imagen'])?$clasificados[$i]['imagen']:'';?>" alt="Imagen no disponible">
                       <p class="lead text-muted text-center"><?php $d = strtotime($clasificados[$i]['fecha']); echo date('F d, Y', $d); ?></p>
                     </div>
                     <div class="col-9">

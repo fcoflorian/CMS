@@ -39,7 +39,7 @@
             <tbody>
               <?php foreach($miembros as $miembro){ ?>
                 <tr>
-                  <td><?php echo 'Foto' ?></td>
+                  <td><img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($miembro['foto'])?$miembro['foto']:'';?>" width="100" alt="Imagen no disponible"></td>
                   <td><?php echo $miembro['nombre'] ?></td>
                   <td><?php echo $miembro['telefono'] ?></td>
                   <td><?php echo $miembro['correo'] ?></td>

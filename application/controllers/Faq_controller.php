@@ -30,7 +30,7 @@ class Faq_controller extends CI_Controller {
 			$data['faq'] = $this->Faq_model->cargarUnaFaq($id);
 		}
 
-		$this->load->view('vista/admin/faq', $data);
+		$this->load->view('vista/admin/faq', isset($data)?$data:'');
 	}
 
 	public function editarFaq($id = null){

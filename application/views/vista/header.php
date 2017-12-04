@@ -33,6 +33,7 @@
               <?php } ?>
               <?php if($this->session->userdata('cedula') != null){ ?>
                 <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/index') ?>">Ver miembros</a>
+                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/miPerfil') ?>">Mi perfil</a>
               <?php } ?>
             </div>
           </div>
@@ -57,6 +58,7 @@
             <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#login">Login</a>
             <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
           <?php }else{ ?>
+            <a class="btn btn-outline-info" href="<?php echo site_url('Miembros_controller/miPerfil') ?>">Mi perfil</a>
             <a class="btn btn-outline-danger" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
           <?php } ?>
         </div>
@@ -115,7 +117,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="<?php echo site_url('Miembros_controller/registrarMiembro') ?>" method="post">
+            <form action="<?php echo site_url('Miembros_controller/registrarMiembro') ?>" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col col-sx-6">
                   <div class="input-group form-group">
@@ -181,6 +183,12 @@
                   <div class="input-group form-group">
                     <label for="correo" class="input-group-addon">Correo</label>
                     <input type="email" name="correo" class="form-control" placeholder="Correo" value="<?php echo isset($miembro['correo'])?$miembro['correo']:''; ?>">
+                  </div>
+                </div>
+                <div class="col col-sx-6">
+                  <div class="input-group form-group">
+                    <label for="foto" class="input-group-addon">Foto</label>
+                    <input type="file" name="foto" class="form-control">
                   </div>
                 </div>
               </div>
