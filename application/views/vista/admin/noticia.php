@@ -8,12 +8,7 @@
     <link rel="shortcut icon" href="<?php echo base_url('/imagenes/');?><?php echo isset($parametros['favicon'])?$parametros['favicon']:'';?>" type="image/x-icon">
    
     <script type="text/javascript" src="<?php echo str_replace("index.php","",site_url()); ?>ckeditor/ckeditor.js"></script>
-    
-    <script>
-      tinymce.init({
-        selector: '#mytextarea'
-      });
-    </script>
+
   </head>
 
   <body>
@@ -67,6 +62,6 @@
       </div>
     </main>
 
-    <?php $this->load->view('vista/footer') ?>
+
   </body>
 </html>
