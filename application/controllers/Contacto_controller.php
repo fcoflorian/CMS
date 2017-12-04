@@ -5,12 +5,15 @@ class Contacto_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Contacto_model');
+		$this->load->model('Index_model');
 		$this->load->helper('url');
 		$this->load->library('session');
 	}
 
 	public function index($id = null){
 		$data['mensajes'] = $this->Contacto_model->cargarMensajes();
+
+		$data['parametros'] = $this->Index_model->cargarParametros();
 		
 		$this->load->view('vista/admin/contacto', $data);
 	}
@@ -25,6 +28,7 @@ class Contacto_controller extends CI_Controller {
 				}
 			}
 		}
+		$data['parametros'] = $this->Index_model->cargarParametros();
 
 		$this->load->view('vista/contacto_view', isset($data)?$data:'');
 	}

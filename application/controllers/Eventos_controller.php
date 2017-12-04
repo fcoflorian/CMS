@@ -5,12 +5,15 @@ class Eventos_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Eventos_model');
+		$this->load->model('Index_model');
 		$this->load->helper('url');
 		$this->load->library('session');
 	}
 
 	public function index($id = null){
 		$data['eventos'] = $this->Eventos_model->cargarEventos();
+
+		$data['parametros'] = $this->Index_model->cargarParametros();
 		
 		$this->load->view('vista/eventos_view', $data);
 	}
@@ -29,6 +32,7 @@ class Eventos_controller extends CI_Controller {
 		}else{
 			$data['evento'] = $this->Eventos_model->cargarUnEvento($id)[0];
 		}
+		$data['parametros'] = $this->Index_model->cargarParametros();
 
 		$this->load->view('vista/admin/eventos', isset($data)?$data:'');
 	}
@@ -71,6 +75,8 @@ class Eventos_controller extends CI_Controller {
 			$data['evento'] = $evento[0];
 			$data['asistencia'] = $evento[1];
 			$data['miembros'] = $this->Eventos_model->cargarMiembrosEvento($id);
+
+			$data['parametros'] = $this->Index_model->cargarParametros();
 
 			$this->load->view('vista/ver_evento_view', $data);
 		}

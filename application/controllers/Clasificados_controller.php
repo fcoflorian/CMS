@@ -5,6 +5,7 @@ class Clasificados_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Clasificados_model');
+		$this->load->model('Index_model');
 		$this->load->helper('url');
 		$this->load->library('session');
 	}
@@ -14,6 +15,8 @@ class Clasificados_controller extends CI_Controller {
 
 		$data['numeroDePaginas'] = ceil(count($data['clasificados'])/10);
 		$data['paginaActual'] = $paginaActual;
+
+		$data['parametros'] = $this->Index_model->cargarParametros();
 		
 		$this->load->view('vista/clasificados_view', $data);
 	}
@@ -32,8 +35,9 @@ class Clasificados_controller extends CI_Controller {
 		}else{
 			$data['clasificado'] = $this->Clasificados_model->cargarUnClasificado($id);
 		}
+		$data['parametros'] = $this->Index_model->cargarParametros();
 
-		$this->load->view('vista/admin/clasificados', $data);
+		$this->load->view('vista/admin/clasificados', isset($data)?$data:'');
 	}
 
 	public function editarClasificado($id = null){

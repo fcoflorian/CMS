@@ -33,7 +33,7 @@
 <body>
 
   <nav class="navbar sticky-top navbar-expand-lg navbar-toggleable-lg navbar-light bg-faded"  style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href=""><?php echo isset($nombre_equipo)?$nombre_equipo:'Navbar' ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -72,6 +72,7 @@
           <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/guardarEvento')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/guardarEvento') ?>">Crear evento</a>
           <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/index')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/index') ?>">Mensajes</a>
           <a class="nav-item nav-link <?php echo strpos(current_url(), 'Faq_controller/guardarFaq')?'active':'' ?>" href="<?php echo site_url('Faq_controller/guardarFaq') ?>">Crear pregunta frecuente</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Index_controller/configurarParametros')?'active':'' ?>" href="<?php echo site_url('Index_controller/configurarParametros') ?>">Configurar parametros</a>
         <?php } ?>
       </div>
       <div>

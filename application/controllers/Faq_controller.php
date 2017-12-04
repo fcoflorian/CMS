@@ -5,12 +5,15 @@ class Faq_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Faq_model');
+		$this->load->model('Index_model');
 		$this->load->helper('url');
 		$this->load->library('session');
 	}
 
 	public function index($id = null){
 		$data['faqs'] = $this->Faq_model->cargarFaqs();
+
+		$data['parametros'] = $this->Index_model->cargarParametros();
 		
 		$this->load->view('vista/faq_view', $data);
 	}
@@ -29,6 +32,7 @@ class Faq_controller extends CI_Controller {
 		}else{
 			$data['faq'] = $this->Faq_model->cargarUnaFaq($id);
 		}
+		$data['parametros'] = $this->Index_model->cargarParametros();
 
 		$this->load->view('vista/admin/faq', isset($data)?$data:'');
 	}

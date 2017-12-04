@@ -5,12 +5,15 @@ class Galeria_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Galeria_model');
+		$this->load->model('Index_model');
 		$this->load->helper('url');
 		$this->load->library('session');
 	}
 
 	public function index($id = null){
 		$data['fotos'] = $this->Galeria_model->cargarFotos();
+
+		$data['parametros'] = $this->Index_model->cargarParametros();
 		
 		$this->load->view('vista/galeria_view', $data);
 	}
@@ -29,6 +32,7 @@ class Galeria_controller extends CI_Controller {
 		}else{
 			$data['foto'] = $this->Galeria_model->cargarUnaFoto($id);
 		}
+		$data['parametros'] = $this->Index_model->cargarParametros();
 
 		$this->load->view('vista/admin/galeria', isset($data)?$data:'');
 	}

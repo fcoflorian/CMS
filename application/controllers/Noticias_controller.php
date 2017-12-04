@@ -5,6 +5,7 @@ class Noticias_controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Noticias_model');
+		$this->load->model('Index_model');
 		$this->load->helper('url');
 		$this->load->library('session');
 	}
@@ -21,6 +22,8 @@ class Noticias_controller extends CI_Controller {
 
 		$data['numeroDePaginas'] = ceil(count($data['noticias'])/10);
 		$data['paginaActual'] = $paginaActual;
+
+		$data['parametros'] = $this->Index_model->cargarParametros();
 		
 		$this->load->view('vista/noticia_view', $data);
 	}
@@ -28,6 +31,8 @@ class Noticias_controller extends CI_Controller {
 	public function verNoticia($id = null){
 		if($id != null){
 			$data['noticia'] = $this->Noticias_model->cargarUnaNoticia($id);
+
+			$data['parametros'] = $this->Index_model->cargarParametros();
 
 			$this->load->view('vista/ver_noticia_view', $data);
 		}
@@ -47,6 +52,7 @@ class Noticias_controller extends CI_Controller {
 		} else {
 			$data['noticia'] = $this->Noticias_model->cargarUnaNoticia($id);
 		}
+		$data['parametros'] = $this->Index_model->cargarParametros();
 
 		$this->load->view('vista/admin/noticia', $data);
 	}

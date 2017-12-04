@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="<?php echo base_url('/imagenes/');?><?php echo isset($parametros['favicon'])?$parametros['favicon']:'';?>" type="image/x-icon">
-    <title>Crear pregunta frecuente</title>
+    <title>Configurar parametros</title>
 </head>
 <body>
     <!-- header -->
@@ -15,22 +15,30 @@
 
     <main>
         <div class="container">
-            <h2 class="mt-5 mb-5">Crear pregunta frecuente</h2>
+            <h2 class="mt-5 mb-5">Configurar parametros</h2>
 
-            <form action="<?php echo isset($faq['id'])?site_url('Faq_controller/guardarFaq/'.$faq['id']):site_url('Faq_controller/guardarFaq'); ?>" method="post">
+            <form action="<?php echo isset($parametros['id'])?site_url('Index_controller/guardarParametros/'.$parametros['id']):site_url('Index_controller/guardarParametros'); ?>" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col col-sx-12">
                         <div class="input-group form-group">
-                            <label for="pregunta" class="input-group-addon">Pregunta</label>
-                            <textarea name="pregunta" class="form-control"><?php echo isset($faq['pregunta'])?$faq['pregunta']:'' ?></textarea>
+                            <label for="nombre_equipo" class="input-group-addon">Nombre del equipo</label>
+                            <input type="text" name="nombre_equipo" class="form-control" value="<?php echo isset($parametros['nombre_equipo'])?$parametros['nombre_equipo']:'' ?>">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col col-sx-12">
                         <div class="input-group form-group">
-                            <label for="respuesta" class="input-group-addon">Respuesta</label>
-                            <textarea name="respuesta" class="form-control"><?php echo isset($faq['respuesta'])?$faq['respuesta']:'' ?></textarea>
+                            <label for="titulo" class="input-group-addon">Titulo de la pagina</label>
+                            <input type="text" name="titulo" class="form-control" value="<?php echo isset($parametros['titulo'])?$parametros['titulo']:'' ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-sx-12">
+                        <div class="input-group form-group">
+                            <label for="favicon" class="input-group-addon">Favicon</label>
+                            <input type="file" name="favicon" class="form-control">
                         </div>
                     </div>
                 </div>

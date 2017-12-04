@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="<?php echo base_url('/imagenes/');?><?php echo isset($parametros['favicon'])?$parametros['favicon']:'';?>" type="image/x-icon">
     <script src="<?php echo str_replace("index.php","",site_url()); ?>application/views/vista/admin/tinymce/tinymce.min.js"></script>
     
     <script>
@@ -16,7 +17,8 @@
 
   <body>
     <!-- header -->
-      <?php $this->load->view('vista/header') ?>
+    <?php $data['nombre_equipo'] = $parametros['nombre_equipo']; ?>
+      <?php $this->load->view('vista/header', $data) ?>
     <!-- end header -->
 
     <main>
