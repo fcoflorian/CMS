@@ -44,6 +44,7 @@ class Index_controller extends CI_Controller {
 		}else{
 			$data['parametros'] = $this->Index_model->cargarParametros();
 		}
+		$data['parametros'] = $this->Index_model->cargarParametros();
 
 		$this->load->view('vista/admin/parametros', isset($data)?$data:'');
 	}
