@@ -10,11 +10,6 @@ class Index_controller extends CI_Controller {
 	}
 
 	public function index(){
-		//Verificando si la conexion funciona
-		if($this->Index_model->con()){
-			redirect("Index_controller/install");
-		}
-
 		$data['noticias'] = $this->Index_model->cargarUltimas5Noticias();
 		$data['eventos'] = $this->Index_model->cargarEventos();
 		$data['clasificados'] = $this->Index_model->cargarUltimos5Anuncios();
@@ -55,23 +50,6 @@ class Index_controller extends CI_Controller {
 			if(count($editar) > 0){
 				return $editar;
 			}
-		}
-	}
-
-	public function install(){
-		$this->load->view('vista/install');
-	}
-
-	public function config(){
-		//Si se recibe un array de las configuraciones, la conexion no funcionó
-		if(count($this->Index_model->setDb()) > 0){
-			$data['error'] = 'No se pudo conectar, intentelo de nuevo';
-			$data['config'] = $this->Index_model->setDb();
-			$this->load->view('vista/install', $data);
-		} else {
-		//Si todo salio bien volvemos al index
-			$this->session->sess_destroy();
-			redirect("Index_controller/index");
 		}
 	}
 }
