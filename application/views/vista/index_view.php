@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title><?php echo $parametros['titulo'] ?></title>
+    <title><?php echo isset($parametros['titulo'])?$parametros['titulo']:'Titulo de la pagina' ?></title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

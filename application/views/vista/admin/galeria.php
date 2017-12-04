@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="shortcut icon" href="<?php echo base_url('/imagenes/');?><?php echo isset($parametros['favicon'])?$parametros['favicon']:'';?>" type="image/x-icon">
-	<title>Subir foto</title>
+	<title><?php echo isset($parametros['titulo'])?$parametros['titulo']:'Titulo de la pagina' ?></title>
 </head>
 <body>
 
