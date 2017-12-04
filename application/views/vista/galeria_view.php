@@ -19,6 +19,7 @@
         <div class="d-flex align-items-center">
           <div class="card-group" >
             <?php foreach($fotos as $foto){ ?>
+            <div class="col col-md-4">
               <div class="card mb-3 mr-5">
                 <img class="card-img-top img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($foto['foto'])?$foto['foto']:'';?>" alt="Card image cap">
                 <div class="card-body">
@@ -32,6 +33,7 @@
                   </div><br>
                 </div>
               </div>
+            </div>
             <?php } ?>
           </div>
         </div>
