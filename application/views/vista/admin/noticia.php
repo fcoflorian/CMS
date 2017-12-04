@@ -54,6 +54,10 @@
             <input type="submit" class="btn btn-primary" value="Publicar">
           </div>
         </form>
+        
+        <?php if(isset($error)){ ?>
+            <div class="alert alert-danger"><?php echo $error ?></div>
+        <?php } ?>
       </div>
     </main>
 
