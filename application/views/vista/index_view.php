@@ -26,15 +26,11 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100" src="http://localhost/cms/imagenes/2.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="http://localhost/cms/imagenes/2.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="http://localhost/cms/imagenes/2.jpg" alt="Third slide">
-            </div>
+            <?php foreach($noticias as $noticia){ ?>
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="Imagen no disponible">
+              </div>
+            <?php } ?>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
