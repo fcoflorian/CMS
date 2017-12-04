@@ -50,14 +50,10 @@
             <script>
               function initMap() {
                 var uluru = [];
-                var id = [];
 
                 <?php foreach($miembros as $miembro){ ?>
                   var miembro = {lat: <?php echo $miembro['latitud']; ?>, lng: <?php echo $miembro['longitud']; ?>};
                   uluru.push(miembro);
-
-                  var idMiembro = <?php echo $miembro['id'];?>;
-                  id.push(idMiembro);
                 <?php } ?>
 
                 var map = new google.maps.Map(document.getElementById('map'), {
@@ -68,14 +64,8 @@
                 for(var i = 0; i < uluru.length; i++){
                   var marker = new google.maps.Marker({
                     position: uluru[i],
-                    map: map,
-                    title: 'Click para ver detalles'
+                    map: map
                   });
-
-                  (function(i){marker.addListener('click', function(){
-                      location.href = "<?php echo site_url('Miembros_controller/verMiembro/'); ?>" + id[i];
-                    });
-                  })(i);
                 }
               }
             </script>
