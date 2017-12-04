@@ -58,8 +58,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
-        <?php $this->load->view('vista/footer') ?>
-    <!-- Fin Footer -->
+ 
   </body>
 </html>

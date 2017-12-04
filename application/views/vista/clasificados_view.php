@@ -15,25 +15,27 @@
     <!-- end header -->
     <main>
       <div class="container">
-        <h2>Clasificados</h2>
+        <h2 class="text-center mt-5">Clasificados</h2>
           <?php for($i = ($paginaActual-1) * 10; $i < $paginaActual * 10; $i++){ ?>
             <?php if($i < count($clasificados)){ ?>
               <hr>
               <div class="row">
                 <div class="col-12 col-lg-9 mb-5">
                   <div class="row mb-5">
-                    <div class="col-3">
+                    <div class="col-6">
                       <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($clasificados[$i]['imagen'])?$clasificados[$i]['imagen']:'';?>" alt="Imagen no disponible">
-                      <p class="lead text-muted text-center"><?php $d = strtotime($clasificados[$i]['fecha']); echo date('F d, Y', $d); ?></p>
+                      <p class="lead text-muted text-left"><?php $d = strtotime($clasificados[$i]['fecha']); echo date('F d, Y', $d); ?></p>
                     </div>
-                    <div class="col-9">
+                    <div class="col-6">
                       <h3><?php echo $clasificados[$i]['titulo'] ?></h3>
                       <p><?php echo $clasificados[$i]['descripcion'] ?></p>
                     </div>
+                    <div>
                     <?php if($clasificados[$i]['id_usuario'] == $this->session->userdata('id') || $this->session->userdata('admin') != null){ ?>
                       <a href="<?php echo site_url('Clasificados_controller/guardarClasificado/'.$clasificados[$i]['id']); ?>" class="btn btn-warning">Editar</a>
                       <a href="<?php echo site_url('Clasificados_controller/borrarClasificado/'.$clasificados[$i]['id']); ?>" class="btn btn-danger">Eliminar</a>
                     <?php } ?>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -65,6 +67,6 @@
       <!-- Fin Navegación páginas -->
 
     </main>
-    <?php $this->load->view('vista/footer') ?>
+
   </body>
 </html>

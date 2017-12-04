@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title><?php echo isset($parametros['titulo'])?$parametros['titulo']:'Titulo de la pagina' ?></title>
+    <title><?php echo isset($parametros['titulo'])?$parametros['titulo']:'Inicio' ?></title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -67,7 +67,7 @@
                 <p alig="justify"><?php echo $noticia['descripcion'] ?></p>
               </div>
 
-            </div><!-- Fin Artículos -->
+            </div><!-- Fin Artículos --><hr>
           <?php } ?>
         </div><!-- Fin col -->
 
@@ -127,9 +127,9 @@
           <?php } ?>
         </div>
       </div><!-- Fin row -->
-    </main>
+    </main><hr>
 
-    <?php $this->load->view('vista/footer') ?>
+
    
   </body>
 </html>

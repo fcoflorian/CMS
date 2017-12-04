@@ -22,7 +22,7 @@
                     <div class="col col-sx-12">
                         <div class="input-group form-group">
                             <label for="pregunta" class="input-group-addon">Pregunta</label>
-                            <textarea name="pregunta" class="form-control"><?php echo isset($faq['pregunta'])?$faq['pregunta']:'' ?></textarea>
+                            <textarea name="pregunta" class="form-control" placeholder="Pregunta"><?php echo isset($faq['pregunta'])?$faq['pregunta']:'' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="col col-sx-12">
                         <div class="input-group form-group">
                             <label for="respuesta" class="input-group-addon">Respuesta</label>
-                            <textarea name="respuesta" class="form-control"><?php echo isset($faq['respuesta'])?$faq['respuesta']:'' ?></textarea>
+                            <textarea name="respuesta" class="form-control"placeholder="Respuesta"><?php echo isset($faq['respuesta'])?$faq['respuesta']:'' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -47,6 +47,6 @@
             <?php } ?>
         </div>
     </main>
-    <?php $this->load->view('vista/footer') ?>
+
 </body>
 </html>

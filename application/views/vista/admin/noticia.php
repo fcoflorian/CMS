@@ -6,13 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="<?php echo base_url('/imagenes/');?><?php echo isset($parametros['favicon'])?$parametros['favicon']:'';?>" type="image/x-icon">
-    <script src="<?php echo str_replace("index.php","",site_url()); ?>application/views/vista/admin/tinymce/tinymce.min.js"></script>
+   
     
-    <script>
-      tinymce.init({
-        selector: '#mytextarea'
-      });
-    </script>
+ 
   </head>
 
   <body>
@@ -38,7 +34,7 @@
           <div class="row">
             <div class="col col-md-12">
               <div class="input-group form-group">
-                <textarea name="descripcion" id="mytextarea" rows="10" cols="20" class="form-control"><?php echo isset($noticia['descripcion'])?$noticia['descripcion']:'' ?></textarea>
+                <textarea name="descripcion" id="cuerpo" rows="10" cols="20" class="form-control"><?php echo isset($noticia['descripcion'])?$noticia['descripcion']:'' ?></textarea>
               </div>
             </div>
           </div>
@@ -62,6 +58,6 @@
       </div>
     </main>
 
-    <?php $this->load->view('vista/footer') ?>
+
   </body>
 </html>

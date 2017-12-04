@@ -29,6 +29,6 @@
       </div>
     </main>
 
-    <?php $this->load->view('vista/footer') ?>
+  
   </body>
 </html>
