@@ -23,23 +23,10 @@ class Contacto_controller extends CI_Controller {
 					$data['mensaje'] = $guardar[0];
 					$data['error'] = $guardar[1];
 				}
-			}else{
-				$this->editarMensaje($id);
-			}
-		}else{
-			$data['mensaje'] = $this->Contacto_model->cargarUnMensaje($id);
-		}
-
-		$this->load->view('vista/contacto_view', $data);
-	}
-
-	public function editarMensaje($id = null){
-		if($id != null){
-			$editar = $this->Contacto_model->editarMensaje($id, $_POST);
-			if(count($editar) > 0){
-				return $editar;
 			}
 		}
+
+		$this->load->view('vista/contacto_view', isset($data)?$data:'');
 	}
 
 	public function borrarMensaje($id = null){

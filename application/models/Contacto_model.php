@@ -11,16 +11,10 @@ class Contacto_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function cargarUnMensaje($id = null){
-		if($id != null){
-			$query = $this->db->get_where('mensajes', array('id' => $id));
-			return $query->row_array();
-		}
-	}
-
 	public function guardarMensaje($mensaje){
 		$mensaje['nombre'] = $this->session->userdata('nombre');
 		$mensaje['correo'] = $this->session->userdata('correo');
+		$mensaje['fecha'] = date('Y-m-d h:i:s');
 		if($mensaje['mensaje'] != null){
 			if($this->db->insert('mensajes', $mensaje)){
 				return true;
@@ -29,21 +23,6 @@ class Contacto_model extends CI_Model {
 			}
 		}else{
 			return array($mensaje, 'Todos los campos son obligatorios');
-		}
-	}
-
-	public function editarMensaje($id = null, $mensaje){
-		if($id != null){
-			if($mensaje['mensaje'] != null){
-				$this->db->where('id', $id);
-				if($this->db->update('mensajes', $mensaje)){
-					return true;
-				}else{
-					return false;
-				}
-			} else {
-				return array($mensaje, 'Todos los campos son obligatorios');
-			}
 		}
 	}
 

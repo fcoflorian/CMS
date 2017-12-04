@@ -15,7 +15,7 @@ class Faq_controller extends CI_Controller {
 		$this->load->view('vista/faq_view', $data);
 	}
 
-	public function enviarFaq($id = null){
+	public function guardarFaq($id = null){
 		if($_POST){
 			if($id == null){
 				$guardar = $this->Faq_model->guardarFaq($_POST);
