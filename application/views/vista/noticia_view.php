@@ -49,7 +49,7 @@
                     <?php } ?>
                     <?php if($this->session->userdata('cedula') != null){ ?>
                       <div class="d-flex justify-content-center">
-                          <form action="" method="post">
+                          <form action="<?php echo site_url('Noticias_controller/index') ?>" method="post">
                               <input type="hidden" name="id_noticia" class="form-control" value="<?php echo $noticias[$i]['id'] ?>">
                               <div class="row">
                                 <div class="col-auto">

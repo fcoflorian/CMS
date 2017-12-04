@@ -27,10 +27,12 @@
                   <p class="card-text"><?php echo $foto['descripcion'] ?></p>
                 </div>
                 <div class="card-footer">
-                  <div class="container">
-                    <a href="<?php echo site_url('Galeria_controller/guardarFoto/'.$foto['id']); ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?php echo site_url('Galeria_controller/borrarFoto/'.$foto['id']); ?>" class="btn btn-danger">Eliminar</a>
-                  </div><br>
+                  <?php if($this->session->userdata('admin') != null){ ?>
+                    <div class="container">
+                      <a href="<?php echo site_url('Galeria_controller/guardarFoto/'.$foto['id']); ?>" class="btn btn-warning">Editar</a>
+                      <a href="<?php echo site_url('Galeria_controller/borrarFoto/'.$foto['id']); ?>" class="btn btn-danger">Eliminar</a>
+                    </div><br>
+                  <?php } ?>
                 </div>
               </div>
             </div>

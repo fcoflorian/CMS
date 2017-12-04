@@ -26,7 +26,7 @@
               <div class="col col-sx-4">
                 <div class="input-group form-group">
                   <label for="fecha" class="input-group-addon">Fecha</label>
-                  <input type="date" name="fecha" class="form-control" value="<?php echo isset($evento['fecha'])?$evento['fecha']:'' ?>">
+                  <input type="date" name="fecha" class="form-control" value="<?php isset($evento['fecha'])?$d = strtotime($evento['fecha']):''; echo isset($evento['fecha'])?date('Y-m-d', $d):'' ?>">
                 </div>
               </div>
               <div class="col col-sx-4">

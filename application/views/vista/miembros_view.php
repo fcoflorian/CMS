@@ -45,7 +45,7 @@
                   <td><?php echo $miembro['correo'] ?></td>
                   <?php if($this->session->userdata('admin') != null){ ?>
                     <td><?php echo $miembro['admin'] ?></td>
-                    <td><a href="<?php echo site_url('Miembros_controller/hacerAdmin/'.$miembro['id']) ?>" class="btn btn-success">Hacer admin</a></td>
+                    <td><a href="<?php echo site_url('Miembros_controller/hacerAdmin/'.$miembro['id']) ?>" class="btn btn-primary">Hacer admin</a></td>
                   <?php } ?>
                 </tr>
               <?php } ?>
@@ -54,6 +54,7 @@
         </div>
         <?php if($this->session->userdata('admin') != null){ ?>
           <div class="row">
+            <a href="<?php echo site_url('Miembros_controller/exportarMiembros') ?>" class="btn btn-success">Exportar a excel</a>
             <div id="map"></div>
             <script>
               function initMap() {

@@ -28,6 +28,10 @@
                       <h3><?php echo $clasificados[$i]['titulo'] ?></h3>
                       <p><?php echo $clasificados[$i]['descripcion'] ?></p>
                     </div>
+                    <?php if($clasificados[$i]['id_usuario'] == $this->session->userdata('id') || $this->session->userdata('admin') != null){ ?>
+                      <a href="<?php echo site_url('Clasificados_controller/guardarClasificado/'.$clasificados[$i]['id']); ?>" class="btn btn-warning">Editar</a>
+                      <a href="<?php echo site_url('Clasificados_controller/borrarClasificado/'.$clasificados[$i]['id']); ?>" class="btn btn-danger">Eliminar</a>
+                    <?php } ?>
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@ class Noticias_controller extends CI_Controller {
 		$this->load->library('session');
 	}
 
-	public function index($paginaActual = 1, $id = null){
+	public function index($paginaActual = 1){
 		if(isset($_POST['comentario'])){
 			$comentario = $this->Noticias_model->guardarComentario($_POST);
 			if(count($comentario) > 0){

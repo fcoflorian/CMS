@@ -91,4 +91,28 @@ class Miembros_model extends CI_Model {
 			}
 		}
 	}
+
+	public function exportarMiembros(){
+		$query = $this->db->get('miembros');
+		$result = $query->result_array();
+		if($result){
+			$file = fopen('miembros.csv', 'w');
+			foreach($result as $miembro){
+				$miembro['id'] = "Id: ".$miembro['id'];
+				$miembro['cedula'] = "Cedula: ".$miembro['cedula'];
+				$miembro['nombre'] = "Nombre: ".$miembro['nombre'];
+				$miembro['apellido'] = "Apellido: ".$miembro['apellido'];
+				$miembro['telefono'] = "Telefono: ".$miembro['telefono'];
+				$miembro['correo'] = "Correo: ".$miembro['correo'];
+				$miembro['celular'] = "Celular: ".$miembro['celular'];
+				$miembro['direccion'] = "Direccion: ".$miembro['direccion'];
+				$miembro['latitud'] = "Latitud: ".$miembro['latitud'];
+				$miembro['longitud'] = "Longitud: ".$miembro['longitud'];
+				$miembro['admin'] = "Admin: ".$miembro['admin'];
+
+				fputcsv($file, $miembro);
+			}
+			fclose($file);
+		}
+	}
 }
