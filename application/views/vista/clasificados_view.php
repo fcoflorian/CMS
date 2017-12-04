@@ -44,8 +44,9 @@
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
           <div class="btn-group mr-2" role="group" aria-label="First group">
             <?php if($numeroDePaginas > 1){ ?>
+              <?php $prevPage = $paginaActual - 1; $nextPage = $paginaActual +1; ?>
               <?php if($paginaActual != 1){ ?>
-                <a href="<?php echo site_url('Clasificados_controller/index/'.$paginaActual-1); ?>" class="btn btn-secondary">Anterior</a>
+                <a href="<?php echo site_url('Clasificados_controller/index/'.$prevPage); ?>" class="btn btn-secondary">Anterior</a>
               <?php } ?>
 
               <?php for($i = 0; $i < $numeroDePaginas; $i++){ ?>
@@ -53,7 +54,7 @@
               <?php } ?>
 
               <?php if($paginaActual != $numeroDePaginas){ ?>
-                <a href="<?php echo site_url('Clasificados_controller/index/'.$paginaActual+1); ?>" class="btn btn-secondary">Siguiente</a>
+                <a href="<?php echo site_url('Clasificados_controller/index/'.$nextPage); ?>" class="btn btn-secondary">Siguiente</a>
               <?php } ?>
             <?php } ?>
           </div>
