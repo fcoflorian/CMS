@@ -30,6 +30,10 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Correo</th>
+                <?php if($this->session->userdata('admin') != null){ ?>
+                  <th scope="col">Admin</th>
+                  <th scope="col">Acción</th>
+                <?php } ?>
               </tr>
             </thead>
             <tbody>
@@ -39,6 +43,10 @@
                   <td><?php echo $miembro['nombre'] ?></td>
                   <td><?php echo $miembro['telefono'] ?></td>
                   <td><?php echo $miembro['correo'] ?></td>
+                  <?php if($this->session->userdata('admin') != null){ ?>
+                    <td><?php echo $miembro['admin'] ?></td>
+                    <td><a href="<?php echo site_url('Miembros_controller/hacerAdmin/'.$miembro['id']) ?>" class="btn btn-success">Hacer admin</a></td>
+                  <?php } ?>
                 </tr>
               <?php } ?>
             </tbody>

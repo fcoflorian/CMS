@@ -54,4 +54,12 @@ class Miembros_controller extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('Index_controller/index');
 	}
+
+	public function hacerAdmin($id = null){
+		if($id != null){
+			if($this->Miembros_model->hacerAdmin($id)){
+				redirect('Miembros_controller/index');
+			}
+		}
+	}
 }

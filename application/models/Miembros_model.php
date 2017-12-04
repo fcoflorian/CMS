@@ -80,4 +80,15 @@ class Miembros_model extends CI_Model {
 			return false;
 		}
 	}
+
+	public function hacerAdmin($id = null){
+		if($id != null){
+			$this->db->where('id', $id);
+			if($this->db->update('miembros', array('admin' => 'admin'))){
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
 }

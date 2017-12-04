@@ -18,20 +18,17 @@
             <?php if($i < count($clasificados)){ ?>
               <hr>
               <div class="row">
-                <!-- Sección de clasificados -->
                 <div class="col-12 col-lg-9 mb-5">
-                  <!-- Artículos -->
                   <div class="row mb-5">
                     <div class="col-3">
                       <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($clasificados[$i]['imagen'])?$clasificados[$i]['imagen']:'';?>" alt="">
                       <p class="lead text-muted text-center"><?php $d = strtotime($clasificados[$i]['fecha']); echo date('F d, Y', $d); ?></p>
                     </div>
                     <div class="col-9">
-                      <a href="#"><h3><?php echo $clasificados[$i]['titulo'] ?></h3></a>
+                      <h3><?php echo $clasificados[$i]['titulo'] ?></h3>
                       <p><?php echo $clasificados[$i]['descripcion'] ?></p>
                     </div>
                   </div>
-                  <!-- Fin Artículos -->
                 </div>
               </div>
             <?php } ?>
@@ -59,7 +56,9 @@
           </div>
         </div>
       </div>
-    <!-- Fin Navegación páginas -->
+      <!-- Fin Navegación páginas -->
+
     </main>
+    
   </body>
 </html>

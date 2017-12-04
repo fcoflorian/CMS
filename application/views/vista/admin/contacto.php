@@ -11,37 +11,28 @@
         <?php $this->load->view('vista/header') ?>
     <!-- end header -->
 
-    <div class="container mt-5">
-      <div class="card text-center">
-        <div class="card-header">
-          fco.florian@gmail.com
+  <main>
+    <div class="container">
+      <h2 class="mt-5 mb-5">Mensajes</h2>
+      <?php foreach($mensajes as $mensaje){ ?>
+        <div class="container mt-5">
+          <div class="card">
+            <div class="card-header">
+              <?php echo $mensaje['correo'] ?>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title"><?php echo $mensaje['nombre'] ?></h4>
+              <p class="card-text"><?php echo $mensaje['mensaje'] ?></p>
+            </div>
+            <div class="card-footer text-muted">
+              <?php $d = strtotime($mensaje['fecha']); echo date('F d, Y', $d); ?>
+              <a href="<?php echo site_url('Contacto_controller/borrarMensaje/'.$mensaje['id']); ?>" class="btn btn-danger">Eliminar</a>
+            </div>
+          </div>
         </div>
-        <div class="card-body">
-          <h4 class="card-title">Francisco Florian</h4>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.</p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        </div>
-        <div class="card-footer text-muted">
-         <?php echo date("Y-m-d H:i:s") ?>
-        </div>
-      </div>
+      <?php } ?>
     </div>
-
-    <div class="container mt-5">
-      <div class="card text-center">
-        <div class="card-header">
-          fco.florian@gmail.com
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">Francisco Florian</h4>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content. With supporting text below as a natural lead-in to additional content.</p>
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        </div>
-        <div class="card-footer text-muted">
-         <?php echo date("Y-m-d H:i:s") ?>
-        </div>
-      </div>
-    </div>
+  </main>
     
 </body>
 </html>
