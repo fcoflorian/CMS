@@ -39,9 +39,9 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row mb-5">
           <h3>Miembros que asistirán</h3>
-          <table class="table table-hover table-responsive table-bordered">
+          <table class="table table-hover table-bordered">
             <thead>
               <tr>
                 <th scope="col">Foto</th>
@@ -53,7 +53,7 @@
             <tbody>
               <?php foreach($miembros as $miembro){ ?>
                 <tr>
-                  <td><?php echo 'Foto' ?></td>
+                  <td><img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($miembro['foto'])?$miembro['foto']:'';?>" width="100" alt="Imagen no disponible"></td>
                   <td><?php echo $miembro['nombre'] ?></td>
                   <td><?php echo $miembro['telefono'] ?></td>
                   <td><?php echo $miembro['correo'] ?></td>

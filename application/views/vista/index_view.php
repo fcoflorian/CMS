@@ -26,10 +26,16 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <div class="carousel-inner">
+            <?php $i = 0; ?>
             <?php foreach($noticias as $noticia){ ?>
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="Imagen no disponible">
-              </div>
+                <?php $class=""; ?>
+                <?php if($i == 0){ ?>
+                    <?php $class = "active"; ?>
+                <?php } ?>
+                <div class="carousel-item <?php echo $class; ?>">
+                    <img class="d-block w-100" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="Imagen no disponible">
+                </div>
+                <?php $i++; ?>
             <?php } ?>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -69,6 +75,7 @@
 
         <div class="col-12 col-md-3">
           <div class="mb-2">
+            <h5>Eventos cercanos</h5>
             <div class="card card-inverse card-primary text-center">
               <div class="card-block">
                 <div id="map"></div>

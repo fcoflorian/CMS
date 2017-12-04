@@ -50,9 +50,9 @@ class Clasificados_model extends CI_Model {
 	public function editarClasificado($id = null, $clasificado){
 		if($id != null){
 			if($clasificado['titulo'] != null && $clasificado['descripcion'] != null){
-				$nombreImagen = $this->guardarImagen('clasificado');
+				$nombreImagen = $this->guardarImagen('imagen');
 				if($nombreImagen != null){
-					$clasificado['clasificado'] = $nombreImagen;
+					$clasificado['imagen'] = $nombreImagen;
 				}	
 				$this->db->where('id', $id);
 				if($this->db->update('clasificados', $clasificado)){

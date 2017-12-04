@@ -24,7 +24,7 @@
 
     <main>
       <div class="container">
-        <h2 class="mt-5 mb-5">Eventos cercanos</h2>
+        <h2 class="mt-5 mb-5">Eventos</h2>
 
         <div id="map"></div>
         <script>
