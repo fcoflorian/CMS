@@ -22,7 +22,7 @@
                 <hr>
                 <div class="row mb-5">
                   <div class="col-3">
-                    <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticias[$i]['imagen'])?$noticias[$i]['imagen']:'';?>" alt="">
+                    <img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticias[$i]['imagen'])?$noticias[$i]['imagen']:'';?>" alt="Imagen no disponible">
                     <p class="lead text-muted text-center"><?php $d = strtotime($noticias[$i]['fecha']); echo date('F d, Y', $d); ?></p>
                   </div>
                   <div class="col-9">
@@ -49,7 +49,7 @@
                     <?php } ?>
                     <?php if($this->session->userdata('cedula') != null){ ?>
                       <div class="d-flex justify-content-center">
-                          <form action="" method="post">
+                          <form action="<?php echo site_url('Noticias_controller/index') ?>" method="post">
                               <input type="hidden" name="id_noticia" class="form-control" value="<?php echo $noticias[$i]['id'] ?>">
                               <div class="row">
                                 <div class="col-auto">
@@ -65,6 +65,10 @@
                                   </div>
                               </div>
                           </form>
+
+                          <?php if(isset($error)){ ?>
+                              <div class="alert alert-danger"><?php echo $error ?></div>
+                          <?php } ?>
                       </div>
                     <?php } ?>
                   </div>

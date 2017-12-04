@@ -39,13 +39,13 @@
             <tbody>
               <?php foreach($miembros as $miembro){ ?>
                 <tr>
-                  <td><?php echo 'Foto' ?></td>
+                  <td><img class="img-fluid" src="<?php echo base_url('/imagenes/');?><?php echo isset($miembro['foto'])?$miembro['foto']:'';?>" width="100" alt="Imagen no disponible"></td>
                   <td><?php echo $miembro['nombre'] ?></td>
                   <td><?php echo $miembro['telefono'] ?></td>
                   <td><?php echo $miembro['correo'] ?></td>
                   <?php if($this->session->userdata('admin') != null){ ?>
                     <td><?php echo $miembro['admin'] ?></td>
-                    <td><a href="<?php echo site_url('Miembros_controller/hacerAdmin/'.$miembro['id']) ?>" class="btn btn-success">Hacer admin</a></td>
+                    <td><a href="<?php echo site_url('Miembros_controller/hacerAdmin/'.$miembro['id']) ?>" class="btn btn-primary">Hacer admin</a></td>
                   <?php } ?>
                 </tr>
               <?php } ?>
@@ -54,6 +54,7 @@
         </div>
         <?php if($this->session->userdata('admin') != null){ ?>
           <div class="row">
+            <a href="<?php echo site_url('Miembros_controller/exportarMiembros') ?>" class="btn btn-success">Exportar a excel</a>
             <div id="map"></div>
             <script>
               function initMap() {

@@ -45,7 +45,7 @@ class Eventos_model extends CI_Model {
 
 	public function cargarMiembrosEvento($id = null){
 		if($id != null){
-			$sql = "SELECT * FROM miembros INNER JOIN asistencia_eventos ON miembros.id = asistencia_eventos.id_evento WHERE asistencia_eventos.id_evento = ?";
+			$sql = "SELECT * FROM miembros INNER JOIN asistencia_eventos ON miembros.id = asistencia_eventos.id_usuario WHERE asistencia_eventos.id_evento = ?";
 			$query = $this->db->query($sql, array($id));
 			return $query->result_array();
 		}
@@ -53,7 +53,7 @@ class Eventos_model extends CI_Model {
 
 	public function guardarEvento($evento){
 		$evento['imagen'] = $this->guardarImagen('imagen');
-		if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['hora'] != null && $evento['imagen'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
+		if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['fecha'] != '00-00-0000' && $evento['hora'] != null && $evento['imagen'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
 			if($this->db->insert('eventos', $evento)){
 				return true;
 			}else{
@@ -66,7 +66,7 @@ class Eventos_model extends CI_Model {
 
 	public function editarEvento($id = null, $evento){
 		if($id != null){
-			if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['hora'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
+			if($evento['titulo'] != null && $evento['descripcion'] != null && $evento['fecha'] != '00-00-0000' && $evento['hora'] != null && $evento['latitud'] != null && $evento['longitud'] != null){
 				$nombreImagen = $this->guardarImagen('imagen');
 				if($nombreImagen != null){
 					$evento['imagen'] = $nombreImagen;

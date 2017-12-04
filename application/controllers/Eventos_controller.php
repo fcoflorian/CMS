@@ -27,10 +27,10 @@ class Eventos_controller extends CI_Controller {
 				$this->editarEvento($id);
 			}
 		}else{
-			$data['evento'] = $this->Eventos_model->cargarUnEvento($id);
+			$data['evento'] = $this->Eventos_model->cargarUnEvento($id)[0];
 		}
 
-		$this->load->view('vista/admin/eventos', $data);
+		$this->load->view('vista/admin/eventos', isset($data)?$data:'');
 	}
 
 	public function editarEvento($id = null){
