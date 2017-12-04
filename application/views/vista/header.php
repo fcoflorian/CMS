@@ -31,115 +31,59 @@
   </style>
 </head>
 <body>
-    <div class="">
-
-    
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " id="navbar">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mr-auto">
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Index_controller/index')?'active':'' ?>" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/index')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle <?php echo strpos(current_url(), 'Miembros_controller/index')?'active':'' ?>" id="navbarDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Miembros
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <?php if($this->session->userdata('cedula') == null){ ?>
-                <a class="dropdown-item" href="" data-toggle="modal" data-target="#login">Iniciar sesión</a>
-                <a class="dropdown-item" href="" data-toggle="modal" data-target="#register">Registrarse</a>
-              <?php }else{ ?>
-                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
-              <?php } ?>
-              <?php if($this->session->userdata('cedula') != null){ ?>
-                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/index') ?>">Ver miembros</a>
-                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/miPerfil') ?>">Mi perfil</a>
-              <?php } ?>
-            </div>
-          </div>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/index')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/index')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/index') ?>">Eventos</a>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/index')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/index') ?>">Clasificados</a>
-          <?php if($this->session->userdata('cedula') != null){ ?>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/guardarClasificado')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/guardarClasificado') ?>">Crear clasificado</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/enviarMensaje')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
-          <?php } ?>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Faq_controller/index')?'active':'' ?>" href="<?php echo site_url('Faq_controller/index') ?>">FAQ</a>
-          <?php if($this->session->userdata('admin') == 'admin'){ ?>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/guardarNoticia')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/guardarFoto')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/guardarFoto') ?>">Subir fotos</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/guardarEvento')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/guardarEvento') ?>">Crear evento</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/index')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/index') ?>">Mensajes</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Faq_controller/guardarFaq')?'active':'' ?>" href="<?php echo site_url('Faq_controller/guardarFaq') ?>">Crear pregunta frecuente</a>
-          <?php } ?>
-        </div>
-        <div>
-          <?php if($this->session->userdata('cedula') == null){ ?>
-            <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#login">Login</a>
-            <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
-          <?php }else{ ?>
-            <a class="btn btn-outline-info" href="<?php echo site_url('Miembros_controller/miPerfil') ?>">Mi perfil</a>
-            <a class="btn btn-outline-danger" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
-          <?php } ?>
-        </div>
-      </div>
-    </nav> -->
-  </div>
 
   <nav class="navbar sticky-top navbar-expand-lg navbar-toggleable-lg navbar-light bg-faded"  style="background-color: #e3f2fd;">
-            <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mr-auto">
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Index_controller/index')?'active':'' ?>" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/index')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
-          <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle <?php echo strpos(current_url(), 'Miembros_controller/index')?'active':'' ?>" id="navbarDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Miembros
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <?php if($this->session->userdata('cedula') == null){ ?>
-                <a class="dropdown-item" href="" data-toggle="modal" data-target="#login">Iniciar sesión</a>
-                <a class="dropdown-item" href="" data-toggle="modal" data-target="#register">Registrarse</a>
-              <?php }else{ ?>
-                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
-              <?php } ?>
-              <?php if($this->session->userdata('cedula') != null){ ?>
-                <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/index') ?>">Ver miembros</a>
-              <?php } ?>
-            </div>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link <?php echo strpos(current_url(), 'Index_controller/index')?'active':'' ?>" href="<?php echo site_url('Index_controller/index') ?>">Inicio</a>
+        <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/index')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/index') ?>">Noticias</a>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <?php echo strpos(current_url(), 'Miembros_controller/index')?'active':'' ?>" id="navbarDropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Miembros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <?php if($this->session->userdata('cedula') == null){ ?>
+              <a class="dropdown-item" href="" data-toggle="modal" data-target="#login">Iniciar sesión</a>
+              <a class="dropdown-item" href="" data-toggle="modal" data-target="#register">Registrarse</a>
+            <?php }else{ ?>
+              <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
+              <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/miPerfil') ?>">Mi perfil</a>
+            <?php } ?>
+            <?php if($this->session->userdata('cedula') != null){ ?>
+              <a class="dropdown-item" href="<?php echo site_url('Miembros_controller/index') ?>">Ver miembros</a>
+            <?php } ?>
           </div>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/index')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/index')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/index') ?>">Eventos</a>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/index')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/index') ?>">Clasificados</a>
-          <?php if($this->session->userdata('cedula') != null){ ?>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/guardarClasificado')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/guardarClasificado') ?>">Crear clasificado</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/enviarMensaje')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
-          <?php } ?>
-          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Faq_controller/index')?'active':'' ?>" href="<?php echo site_url('Faq_controller/index') ?>">FAQ</a>
-          <?php if($this->session->userdata('admin') == 'admin'){ ?>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/guardarNoticia')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/guardarFoto')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/guardarFoto') ?>">Subir fotos</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/guardarEvento')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/guardarEvento') ?>">Crear evento</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/index')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/index') ?>">Mensajes</a>
-            <a class="nav-item nav-link <?php echo strpos(current_url(), 'Faq_controller/guardarFaq')?'active':'' ?>" href="<?php echo site_url('Faq_controller/guardarFaq') ?>">Crear pregunta frecuente</a>
-          <?php } ?>
         </div>
-        <div>
-          <?php if($this->session->userdata('cedula') == null){ ?>
-            <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#login">Login</a>
-            <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
-          <?php }else{ ?>
-            <a class="btn btn-outline-danger" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
-          <?php } ?>
-        </div>
+        <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/index')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/index') ?>">Galería de fotos</a>
+        <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/index')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/index') ?>">Eventos</a>
+        <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/index')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/index') ?>">Clasificados</a>
+        <?php if($this->session->userdata('cedula') != null){ ?>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Clasificados_controller/guardarClasificado')?'active':'' ?>" href="<?php echo site_url('Clasificados_controller/guardarClasificado') ?>">Crear clasificado</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/enviarMensaje')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/enviarMensaje') ?>">Contacto</a>
+        <?php } ?>
+        <a class="nav-item nav-link <?php echo strpos(current_url(), 'Faq_controller/index')?'active':'' ?>" href="<?php echo site_url('Faq_controller/index') ?>">FAQ</a>
+        <?php if($this->session->userdata('admin') == 'admin'){ ?>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Noticias_controller/guardarNoticia')?'active':'' ?>" href="<?php echo site_url('Noticias_controller/guardarNoticia') ?>">Crear noticias</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Galeria_controller/guardarFoto')?'active':'' ?>" href="<?php echo site_url('Galeria_controller/guardarFoto') ?>">Subir fotos</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Eventos_controller/guardarEvento')?'active':'' ?>" href="<?php echo site_url('Eventos_controller/guardarEvento') ?>">Crear evento</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Contacto_controller/index')?'active':'' ?>" href="<?php echo site_url('Contacto_controller/index') ?>">Mensajes</a>
+          <a class="nav-item nav-link <?php echo strpos(current_url(), 'Faq_controller/guardarFaq')?'active':'' ?>" href="<?php echo site_url('Faq_controller/guardarFaq') ?>">Crear pregunta frecuente</a>
+        <?php } ?>
       </div>
-
+      <div>
+        <?php if($this->session->userdata('cedula') == null){ ?>
+          <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#login">Login</a>
+          <a href="" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Register</a>
+        <?php }else{ ?>
+          <a class="btn btn-outline-info" href="<?php echo site_url('Miembros_controller/miPerfil') ?>">Mi perfil</a>
+          <a class="btn btn-outline-danger" href="<?php echo site_url('Miembros_controller/cerrarSesion') ?>">Cerrar sesión</a>
+        <?php } ?>
+      </div>
+    </div>
   </nav>
 
   <!--Modal login-->

@@ -5,9 +5,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+      #map {
+        height: 200px;
+        width: 100%;
+      }
+    </style>
   </head>
-
-
   <body>
     <!-- header -->
       <?php $this->load->view('vista/header') ?>
@@ -42,7 +47,7 @@
     <!-- end header -->
 
     <main role="main" class="container">
-      <h1 class="mt-3">Noticias publicadas</h1><hr>
+      <h1 class="mt-3">Ultimas noticias</h1><hr>
       <div class="row">
         <!-- Sección de noticias -->
         <div class="col-12 col-lg-9 mb-5">
@@ -56,7 +61,7 @@
               </div>
 
               <div class="col-9">
-                <a href="#"><h3><?php echo $noticia['titulo'] ?></h3></a>
+                <a href="<?php echo site_url('Noticias_controller/verNoticia/'.$noticia['id']) ?>"><h3><?php echo $noticia['titulo'] ?></h3></a>
                 <p alig="justify"><?php echo $noticia['descripcion'] ?></p>
               </div>
 
@@ -65,44 +70,64 @@
         </div><!-- Fin col -->
 
         <div class="col-12 col-md-3">
-          <!-- Cards -->
           <div class="mb-2">
             <div class="card card-inverse card-primary text-center">
               <div class="card-block">
-                <blockquote class="card-blockquote">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                </blockquote>
+                <div id="map"></div>
+                <script>
+                  function initMap() {
+                    var uluru = [];
+                    var id = [];
+
+                    <?php foreach($eventos as $evento){ ?>
+                      var evento = {lat: <?php echo $evento['latitud']; ?>, lng: <?php echo $evento['longitud']; ?>};
+                      uluru.push(evento);
+
+                      var idEvento = <?php echo $evento['id'];?>;
+                      id.push(idEvento);
+                    <?php } ?>
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 8,
+                      center: {lat: 18.918857, lng: -70.209149}
+                    });
+
+                    for(var i = 0; i < uluru.length; i++){
+                      var marker = new google.maps.Marker({
+                        position: uluru[i],
+                        map: map,
+                        title: 'Click para ver detalles'
+                      });
+
+                      (function(i){marker.addListener('click', function(){
+                          location.href = "<?php echo site_url('Eventos_controller/verEvento/'); ?>" + id[i];
+                        });
+                      })(i);
+                    }
+                  }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZHzIYT_dSmPko_c4U1qYlkuneOzdGpgQ&callback=initMap">
+                </script>
               </div>
             </div>
-          </div><!-- Fin Cards -->
-           <!-- Cards -->
+          </div>
+
+          <?php foreach($clasificados as $clasificado){ ?>
             <div class="card mb-2" width="50" height="50">
-              <img class="card-img-top"  src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="Card image cap">
+              <img class="card-img-top"  src="<?php echo base_url('/imagenes/');?><?php echo isset($clasificado['imagen'])?$clasificado['imagen']:'';?>" alt="Card image cap">
+              <p class="lead text-muted text-center"><?php $d = strtotime($clasificado['fecha']); echo date('F d, Y', $d); ?></p>
               <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h4 class="card-title"><?php echo $clasificado['titulo'] ?></h4>
+                <p class="card-text"><?php echo $clasificado['descripcion'] ?></p>
               </div>
             </div>
-            <!-- Fin Cards -->
-            <!-- Cards -->
-            <div class="card mb-2" width="250" height="250">
-              <img class="card-img-top" src="<?php echo base_url('/imagenes/');?><?php echo isset($noticia['imagen'])?$noticia['imagen']:'';?>" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            <!-- Fin Cards -->
+          <?php } ?>
         </div>
       </div><!-- Fin row -->
     </main>
 
-    <footer>
-      <?php $this->load->view('vista/footer') ?>
-    </footer>
+    <?php $this->load->view('vista/footer') ?>
    
   </body>
 </html>
