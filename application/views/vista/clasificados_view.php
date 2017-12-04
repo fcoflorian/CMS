@@ -11,7 +11,6 @@
     <!-- header -->
         <?php $this->load->view('vista/header') ?>
     <!-- end header -->
-
     <main>
       <div class="container">
         <h2>Clasificados</h2>

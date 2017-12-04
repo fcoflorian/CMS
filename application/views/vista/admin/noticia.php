@@ -5,8 +5,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script src="<?php echo str_replace("index.php","",site_url()); ?>application/views/vista/admin/tinymce/tinymce.min.js"></script>
+    
     <script>
       tinymce.init({
         selector: '#mytextarea'
@@ -36,8 +37,7 @@
           <div class="row">
             <div class="col col-md-12">
               <div class="input-group form-group">
-                <label for="descripcion" class="input-group-addon">Descripcion</label>
-                <textarea name="descripcion" id="mytextarea" class="form-control"><?php echo isset($noticia['descripcion'])?$noticia['descripcion']:'' ?></textarea>
+                <textarea name="descripcion" id="mytextarea" rows="10" cols="20" class="form-control"><?php echo isset($noticia['descripcion'])?$noticia['descripcion']:'' ?></textarea>
               </div>
             </div>
           </div>

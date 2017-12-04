@@ -23,7 +23,7 @@
       <h2 class="text-center mt-5 mb-5">Lista de miembros</h2>
       <div class="container">
         <div class="row">
-          <table class="table table-hover table-responsive table-bordered">
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">Foto</th>
